@@ -216,12 +216,7 @@ export default function Home() {
                     </div>
                   </div>
                 </div>
-                <div className="absolute -bottom-6 -right-6 w-32 h-32 rounded-2xl gold-gradient flex items-center justify-center shadow-2xl">
-                  <div className="text-center">
-                    <div className="font-heading text-3xl font-bold text-white">10+</div>
-                    <div className="text-white/80 text-xs">Years Exp.</div>
-                  </div>
-                </div>
+
               </div>
             </motion.div>
             <motion.div
@@ -450,6 +445,45 @@ export default function Home() {
               )}
             </motion.div>
           ))}
+        </div>
+      </section>
+
+      {/* Inside Resolution Law Firm - Courts */}
+      <section className="py-20 sm:py-28 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <SectionTitle title="Inside Resolution Law Firm" subtitle="We represent clients across all major courts in Pakistan" />
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              { name: 'Lahore High Court', img: '/images/lahore-high-court.jpg', desc: 'Constitutional petitions, civil & criminal appeals, writ jurisdiction' },
+              { name: 'Supreme Court of Pakistan', img: '/images/supreme-court.jpg', desc: 'Appeals, constitutional matters, and landmark judgments' },
+              { name: 'District & Sessions Court', img: '/images/district-court.jpg', desc: 'Criminal trials, civil suits, and appellate hearings' },
+              { name: 'Civil Courts', img: '/images/civil-court.jpg', desc: 'Property disputes, recovery suits, injunctions, and declarations' },
+              { name: 'Family Courts', img: '/images/family-court.jpg', desc: 'Divorce, custody, maintenance, Khula, and guardianship matters' },
+              { name: 'Sessions & Magistrate Courts', img: '/images/sessions-court.jpg', desc: 'Criminal defense, bail applications, and trial proceedings' },
+            ].map((court, i) => (
+              <motion.div
+                key={court.name}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className="group rounded-xl overflow-hidden border border-cream-dark hover:border-gold/30 hover:shadow-xl transition-all bg-white"
+              >
+                <div className="h-48 overflow-hidden relative">
+                  <img
+                    src={court.img}
+                    alt={court.name}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-navy/80 via-navy/20 to-transparent" />
+                  <h3 className="absolute bottom-3 left-4 right-4 font-heading text-lg font-bold text-white">{court.name}</h3>
+                </div>
+                <div className="p-5">
+                  <p className="text-slate text-sm leading-relaxed">{court.desc}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 

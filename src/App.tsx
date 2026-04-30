@@ -6,6 +6,8 @@ import About from './pages/About'
 import Services from './pages/Services'
 import BlogList from './pages/BlogList'
 import BlogPost from './pages/BlogPost'
+import CaseLaws from './pages/CaseLaws'
+import CaseLawDetail from './pages/CaseLawDetail'
 import Contact from './pages/Contact'
 import AdminLogin from './pages/AdminLogin'
 import AdminDashboard from './pages/AdminDashboard'
@@ -23,6 +25,8 @@ export default function App() {
           <Route path="/services" element={<Services />} />
           <Route path="/blogs" element={<BlogList />} />
           <Route path="/blog/:slug" element={<BlogPost />} />
+          <Route path="/case-laws" element={<CaseLaws />} />
+          <Route path="/case-law/:slug" element={<CaseLawDetail />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/admin" element={<AdminLogin />} />
           <Route path="/admin/dashboard" element={<AdminDashboard />} />
