@@ -8,6 +8,7 @@ import BlogList from './pages/BlogList'
 import BlogPost from './pages/BlogPost'
 import CaseLaws from './pages/CaseLaws'
 import CaseLawDetail from './pages/CaseLawDetail'
+import Expert from './pages/Expert'
 import Contact from './pages/Contact'
 import AdminLogin from './pages/AdminLogin'
 import AdminDashboard from './pages/AdminDashboard'
@@ -23,6 +24,7 @@ export default function App() {
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
           <Route path="/services" element={<Services />} />
+          <Route path="/expert" element={<Expert />} />
           <Route path="/blogs" element={<BlogList />} />
           <Route path="/blog/:slug" element={<BlogPost />} />
           <Route path="/case-laws" element={<CaseLaws />} />

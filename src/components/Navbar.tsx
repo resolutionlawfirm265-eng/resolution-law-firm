@@ -1,12 +1,13 @@
 import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import { Menu, X, Phone, Mail, MapPin, Scale, ChevronDown } from 'lucide-react'
+import { Menu, X, Phone, Mail, MapPin } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 
 const navLinks = [
   { name: 'Home', path: '/' },
   { name: 'About', path: '/about' },
   { name: 'Services', path: '/services' },
+  { name: 'Expert', path: '/expert' },
   { name: 'Case Laws', path: '/case-laws' },
   { name: 'Blogs', path: '/blogs' },
   { name: 'Contact', path: '/contact' },
@@ -63,12 +64,12 @@ export default function Navbar() {
             </Link>
 
             {/* Desktop Nav */}
-            <div className="hidden lg:flex items-center gap-1">
+            <div className="hidden lg:flex items-center gap-0.5">
               {navLinks.map((link) => (
                 <Link
                   key={link.path}
                   to={link.path}
-                  className={`px-4 py-2 rounded-lg text-sm font-semibold tracking-wide transition-all duration-200 ${
+                  className={`px-3 py-2 rounded-lg text-sm font-semibold tracking-wide transition-all duration-200 ${
                     location.pathname === link.path
                       ? 'text-gold bg-navy/5'
                       : 'text-navy hover:text-gold hover:bg-navy/5'
@@ -79,7 +80,7 @@ export default function Navbar() {
               ))}
               <a
                 href="tel:03168078693"
-                className="ml-4 px-5 py-2.5 gold-gradient text-white rounded-lg text-sm font-bold tracking-wide hover:shadow-lg hover:shadow-gold/25 transition-all duration-200 flex items-center gap-2"
+                className="ml-3 px-5 py-2.5 gold-gradient text-white rounded-lg text-sm font-bold tracking-wide hover:shadow-lg hover:shadow-gold/25 transition-all duration-200 flex items-center gap-2"
               >
                 <Phone size={15} />
                 Free Consultation

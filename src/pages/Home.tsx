@@ -132,18 +132,70 @@ export default function Home() {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="hidden lg:flex justify-center"
             >
-              <div className="relative">
-                <div className="w-80 h-80 rounded-full border-2 border-gold/20 flex items-center justify-center">
-                  <div className="w-64 h-64 rounded-full border border-gold/10 flex items-center justify-center">
-                    <img src="/uploads/upload_1.png" alt="Resolution Law Firm Logo" className="w-48 h-48 object-contain" />
-                  </div>
+              <div className="relative w-[420px] h-[420px] flex items-center justify-center">
+                {/* Outer rotating orbit */}
+                <div className="absolute inset-0 animate-[spin_20s_linear_infinite]">
+                  <svg viewBox="0 0 420 420" className="w-full h-full">
+                    <circle cx="210" cy="210" r="200" stroke="#c4973b" strokeWidth="1" fill="none" opacity="0.2" strokeDasharray="8 6" />
+                  </svg>
+                  {/* Orbit dot 1 */}
+                  <div className="absolute top-[10px] left-1/2 -translate-x-1/2 w-4 h-4 rounded-full gold-gradient shadow-lg shadow-gold/40" />
+                  {/* Orbit dot 2 */}
+                  <div className="absolute bottom-[10px] left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-white/30" />
                 </div>
-                <div className="absolute -top-4 -right-4 w-20 h-20 rounded-2xl gold-gradient flex items-center justify-center shadow-xl">
-                  <Scale size={32} className="text-white" />
+
+                {/* Middle rotating orbit - reverse */}
+                <div className="absolute inset-[40px] animate-[spin_15s_linear_infinite_reverse]">
+                  <svg viewBox="0 0 340 340" className="w-full h-full">
+                    <circle cx="170" cy="170" r="160" stroke="#c4973b" strokeWidth="0.8" fill="none" opacity="0.15" strokeDasharray="12 8" />
+                  </svg>
+                  {/* Orbit dot 3 */}
+                  <div className="absolute top-1/2 right-0 -translate-y-1/2 w-3.5 h-3.5 rounded-full gold-gradient shadow-md shadow-gold/30" />
+                  {/* Orbit dot 4 */}
+                  <div className="absolute top-1/2 left-0 -translate-y-1/2 w-2.5 h-2.5 rounded-full bg-white/20" />
                 </div>
-                <div className="absolute -bottom-4 -left-4 w-20 h-20 rounded-2xl bg-white/10 backdrop-blur flex items-center justify-center">
-                  <Shield size={32} className="text-gold" />
+
+                {/* Inner rotating orbit */}
+                <div className="absolute inset-[80px] animate-[spin_25s_linear_infinite]">
+                  <svg viewBox="0 0 260 260" className="w-full h-full">
+                    <circle cx="130" cy="130" r="120" stroke="#c4973b" strokeWidth="0.6" fill="none" opacity="0.1" strokeDasharray="4 8" />
+                  </svg>
+                  {/* Orbit dot 5 */}
+                  <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-2.5 h-2.5 rounded-full gold-gradient shadow-sm" />
                 </div>
+
+                {/* Static glow ring */}
+                <div className="absolute inset-[110px] rounded-full border border-gold/10" />
+
+                {/* Center logo */}
+                <div className="relative z-10 w-48 h-48 rounded-full bg-navy-light/50 backdrop-blur-sm border-2 border-gold/20 flex items-center justify-center shadow-2xl shadow-gold/10">
+                  <img src="/uploads/upload_1.png" alt="Resolution Law Firm Logo" className="w-36 h-36 object-contain" />
+                </div>
+
+                {/* Floating icons on orbits */}
+                <motion.div
+                  animate={{ y: [-8, 8, -8] }}
+                  transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
+                  className="absolute -top-2 right-12 w-16 h-16 rounded-2xl gold-gradient flex items-center justify-center shadow-xl shadow-gold/30"
+                >
+                  <Scale size={28} className="text-white" />
+                </motion.div>
+
+                <motion.div
+                  animate={{ y: [6, -6, 6] }}
+                  transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
+                  className="absolute -bottom-2 left-12 w-14 h-14 rounded-2xl bg-white/10 backdrop-blur flex items-center justify-center border border-white/10"
+                >
+                  <Shield size={24} className="text-gold" />
+                </motion.div>
+
+                <motion.div
+                  animate={{ x: [-5, 5, -5] }}
+                  transition={{ duration: 3.5, repeat: Infinity, ease: 'easeInOut' }}
+                  className="absolute top-20 -left-4 w-12 h-12 rounded-xl bg-white/5 backdrop-blur flex items-center justify-center border border-gold/10"
+                >
+                  <Gavel size={20} className="text-gold/70" />
+                </motion.div>
               </div>
             </motion.div>
           </div>
