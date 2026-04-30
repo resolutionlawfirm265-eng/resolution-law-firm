@@ -1,0 +1,90 @@
+@import "tailwindcss";
+
+@theme {
+  --color-navy: #1a2744;
+  --color-navy-light: #243352;
+  --color-navy-dark: #0f1a2e;
+  --color-gold: #c4973b;
+  --color-gold-light: #d4a94d;
+  --color-gold-dark: #a37d2f;
+  --color-cream: #f8f5ef;
+  --color-cream-dark: #ede8de;
+  --color-slate: #64748b;
+  --color-charcoal: #1e293b;
+  --font-heading: 'Playfair Display', serif;
+  --font-body: 'Source Sans 3', sans-serif;
+}
+
+@font-face {
+  font-family: 'Playfair Display';
+  font-style: normal;
+  font-weight: 400 900;
+  font-display: swap;
+  src: url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&display=swap');
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Source Sans 3', 'Segoe UI', sans-serif;
+  background-color: #f8f5ef;
+  color: #1e293b;
+}
+
+.font-heading {
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+.font-body {
+  font-family: 'Source Sans 3', 'Segoe UI', sans-serif;
+}
+
+.gold-gradient {
+  background: linear-gradient(135deg, #c4973b 0%, #d4a94d 50%, #a37d2f 100%);
+}
+
+.navy-gradient {
+  background: linear-gradient(135deg, #0f1a2e 0%, #1a2744 50%, #243352 100%);
+}
+
+.text-gold-gradient {
+  background: linear-gradient(135deg, #c4973b 0%, #d4a94d 50%, #e8c36a 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(196, 151, 59, 0.15);
+}
+
+.hero-pattern {
+  background-image: radial-gradient(circle at 25% 25%, rgba(196, 151, 59, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 75% 75%, rgba(26, 39, 68, 0.05) 0%, transparent 50%);
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f8f5ef;
+}
+::-webkit-scrollbar-thumb {
+  background: #c4973b;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #a37d2f;
+}
+
+.blog-content h2 { font-size: 1.5rem; font-weight: 700; margin: 1.5rem 0 0.75rem; color: #1a2744; }
+.blog-content h3 { font-size: 1.25rem; font-weight: 600; margin: 1.25rem 0 0.5rem; color: #1a2744; }
+.blog-content p { margin-bottom: 1rem; line-height: 1.8; color: #374151; }
+.blog-content ul { list-style: disc; padding-left: 1.5rem; margin-bottom: 1rem; }
+.blog-content ol { list-style: decimal; padding-left: 1.5rem; margin-bottom: 1rem; }
+.blog-content li { margin-bottom: 0.5rem; line-height: 1.7; }
+.blog-content blockquote { border-left: 4px solid #c4973b; padding-left: 1rem; margin: 1rem 0; font-style: italic; color: #64748b; }

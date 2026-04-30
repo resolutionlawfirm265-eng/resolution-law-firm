@@ -1,0 +1,387 @@
+import { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { motion } from 'framer-motion'
+import { FileText, MessageSquare, Star, LogOut, Plus, Trash2, Eye, EyeOff, Check, X, Edit2, ChevronDown, Mail, Phone, Clock, RefreshCw } from 'lucide-react'
+
+interface Blog { id: number; title: string; slug: string; excerpt: string; content: string; category: string; image_url: string; published: boolean; created_at: string; }
+interface Message { id: number; name: string; email: string; phone: string; subject: string; message: string; read: boolean; created_at: string; }
+interface Review { id: number; name: string; rating: number; comment: string; approved: boolean; created_at: string; }
+
+type Tab = 'blogs' | 'messages' | 'reviews'
+
+export default function AdminDashboard() {
+  const navigate = useNavigate()
+  const [activeTab, setActiveTab] = useState<Tab>('messages')
+  const [blogs, setBlogs] = useState<Blog[]>([])
+  const [messages, setMessages] = useState<Message[]>([])
+  const [reviews, setReviews] = useState<Review[]>([])
+  const [loading, setLoading] = useState(true)
+  const [showBlogForm, setShowBlogForm] = useState(false)
+  const [editingBlog, setEditingBlog] = useState<Blog | null>(null)
+  const [blogForm, setBlogForm] = useState({ title: '', slug: '', excerpt: '', content: '', category: 'Civil Law', image_url: '', published: false })
+
+  useEffect(() => {
+    const token = localStorage.getItem('admin_token')
+    if (!token) { navigate('/admin'); return }
+    fetchAll()
+  }, [])
+
+  const fetchAll = async () => {
+    setLoading(true)
+    try {
+      const [b, m, r] = await Promise.all([
+        fetch('/api/blogs').then(r => r.json()),
+        fetch('/api/messages').then(r => r.json()),
+        fetch('/api/reviews').then(r => r.json()),
+      ])
+      setBlogs(Array.isArray(b) ? b : [])
+      setMessages(Array.isArray(m) ? m : [])
+      setReviews(Array.isArray(r) ? r : [])
+    } catch (err) { console.error(err) }
+    setLoading(false)
+  }
+
+  const logout = () => { localStorage.removeItem('admin_token'); navigate('/admin') }
+
+  const generateSlug = (title: string) => title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
+
+  const saveBlog = async (e: React.FormEvent) => {
+    e.preventDefault()
+    const slug = blogForm.slug || generateSlug(blogForm.title)
+    if (editingBlog) {
+      await fetch('/api/blogs', {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ...blogForm, slug, id: editingBlog.id }),
+      })
+    } else {
+      await fetch('/api/blogs', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ...blogForm, slug }),
+      })
+    }
+    setShowBlogForm(false)
+    setEditingBlog(null)
+    setBlogForm({ title: '', slug: '', excerpt: '', content: '', category: 'Civil Law', image_url: '', published: false })
+    fetchAll()
+  }
+
+  const deleteBlog = async (id: number) => {
+    if (!confirm('Delete this blog post?')) return
+    await fetch('/api/blogs', { method: 'DELETE', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ id }) })
+    fetchAll()
+  }
+
+  const editBlog = (blog: Blog) => {
+    setEditingBlog(blog)
+    setBlogForm({ title: blog.title, slug: blog.slug, excerpt: blog.excerpt, content: blog.content, category: blog.category, image_url: blog.image_url, published: blog.published })
+    setShowBlogForm(true)
+  }
+
+  const toggleBlogPublish = async (blog: Blog) => {
+    await fetch('/api/blogs', {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ id: blog.id, title: blog.title, slug: blog.slug, excerpt: blog.excerpt, content: blog.content, category: blog.category, image_url: blog.image_url, published: !blog.published }),
+    })
+    fetchAll()
+  }
+
+  const toggleMessageRead = async (msg: Message) => {
+    await fetch('/api/messages', {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ id: msg.id, read: !msg.read }),
+    })
+    fetchAll()
+  }
+
+  const deleteMessage = async (id: number) => {
+    if (!confirm('Delete this message?')) return
+    await fetch('/api/messages', { method: 'DELETE', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ id }) })
+    fetchAll()
+  }
+
+  const toggleReviewApproval = async (review: Review) => {
+    await fetch('/api/reviews', {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ id: review.id, approved: !review.approved }),
+    })
+    fetchAll()
+  }
+
+  const deleteReview = async (id: number) => {
+    if (!confirm('Delete this review?')) return
+    await fetch('/api/reviews', { method: 'DELETE', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ id }) })
+    fetchAll()
+  }
+
+  const unreadCount = messages.filter(m => !m.read).length
+  const pendingReviews = reviews.filter(r => !r.approved).length
+
+  const tabs: { key: Tab; label: string; icon: any; badge?: number }[] = [
+    { key: 'messages', label: 'Messages', icon: MessageSquare, badge: unreadCount },
+    { key: 'blogs', label: 'Blogs', icon: FileText },
+    { key: 'reviews', label: 'Reviews', icon: Star, badge: pendingReviews },
+  ]
+
+  return (
+    <div className="min-h-screen bg-cream">
+      {/* Header */}
+      <div className="navy-gradient">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
+          <div className="flex items-center gap-3">
+            <img src="/uploads/upload_1.png" alt="Logo" className="h-10 brightness-0 invert" />
+            <div>
+              <h1 className="font-heading text-lg font-bold text-white">Admin Dashboard</h1>
+              <p className="text-white/40 text-xs">Resolution Law Firm CMS</p>
+            </div>
+          </div>
+          <div className="flex items-center gap-3">
+            <button onClick={fetchAll} className="p-2 text-white/50 hover:text-white transition-colors" title="Refresh">
+              <RefreshCw size={18} />
+            </button>
+            <button onClick={logout} className="flex items-center gap-2 px-4 py-2 bg-white/10 text-white rounded-lg text-sm hover:bg-white/20 transition-colors">
+              <LogOut size={16} /> Logout
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Stats */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 -mt-6">
+        <div className="grid grid-cols-3 gap-3 sm:gap-4">
+          {[
+            { label: 'Messages', count: messages.length, sub: `${unreadCount} unread`, color: 'bg-blue-500' },
+            { label: 'Blog Posts', count: blogs.length, sub: `${blogs.filter(b => b.published).length} published`, color: 'bg-green-500' },
+            { label: 'Reviews', count: reviews.length, sub: `${pendingReviews} pending`, color: 'bg-amber-500' },
+          ].map(stat => (
+            <div key={stat.label} className="bg-white rounded-xl p-4 sm:p-5 shadow-sm border border-cream-dark">
+              <div className={`w-2 h-2 rounded-full ${stat.color} mb-2`} />
+              <div className="font-heading text-2xl sm:text-3xl font-bold text-navy">{stat.count}</div>
+              <div className="text-slate text-xs sm:text-sm">{stat.label}</div>
+              <div className="text-slate/60 text-xs">{stat.sub}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Tabs */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 mt-6">
+        <div className="flex gap-1 bg-white rounded-xl p-1 border border-cream-dark overflow-x-auto">
+          {tabs.map(tab => (
+            <button
+              key={tab.key}
+              onClick={() => setActiveTab(tab.key)}
+              className={`flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-lg text-sm font-semibold transition-all whitespace-nowrap ${
+                activeTab === tab.key ? 'gold-gradient text-white shadow-sm' : 'text-slate hover:text-navy hover:bg-cream/50'
+              }`}
+            >
+              <tab.icon size={16} />
+              <span className="hidden sm:inline">{tab.label}</span>
+              {tab.badge !== undefined && tab.badge > 0 && (
+                <span className={`text-xs px-1.5 py-0.5 rounded-full ${activeTab === tab.key ? 'bg-white/20 text-white' : 'bg-red-100 text-red-600'}`}>{tab.badge}</span>
+              )}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {/* Content */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-6 pb-20">
+        {loading ? (
+          <div className="flex items-center justify-center py-20">
+            <div className="w-8 h-8 border-4 border-gold border-t-transparent rounded-full animate-spin" />
+          </div>
+        ) : (
+          <>
+            {/* Messages Tab */}
+            {activeTab === 'messages' && (
+              <div className="space-y-3">
+                {messages.length === 0 ? (
+                  <div className="text-center py-16 text-slate">No messages yet.</div>
+                ) : messages.map(msg => (
+                  <motion.div
+                    key={msg.id}
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className={`bg-white rounded-xl p-5 border transition-all ${
+                      msg.read ? 'border-cream-dark' : 'border-gold/30 shadow-sm'
+                    }`}
+                  >
+                    <div className="flex items-start justify-between gap-3">
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-center gap-2 flex-wrap">
+                          <h3 className={`font-semibold ${msg.read ? 'text-slate' : 'text-navy'}`}>{msg.name}</h3>
+                          {!msg.read && <span className="text-xs px-2 py-0.5 rounded-full bg-gold/10 text-gold font-semibold">New</span>}
+                        </div>
+                        <p className="text-sm text-gold font-semibold mt-0.5">{msg.subject}</p>
+                        <p className="text-slate text-sm mt-2 leading-relaxed">{msg.message}</p>
+                        <div className="flex items-center gap-4 mt-3 text-xs text-slate/60">
+                          <span className="flex items-center gap-1"><Mail size={12} /> {msg.email}</span>
+                          {msg.phone && <span className="flex items-center gap-1"><Phone size={12} /> {msg.phone}</span>}
+                          <span className="flex items-center gap-1"><Clock size={12} /> {new Date(msg.created_at).toLocaleDateString()}</span>
+                        </div>
+                      </div>
+                      <div className="flex items-center gap-1 shrink-0">
+                        <button onClick={() => toggleMessageRead(msg)} className={`p-2 rounded-lg transition-colors ${msg.read ? 'text-slate/40 hover:text-navy hover:bg-cream' : 'text-gold hover:bg-gold/10'}`} title={msg.read ? 'Mark unread' : 'Mark read'}>
+                          {msg.read ? <EyeOff size={16} /> : <Eye size={16} />}
+                        </button>
+                        <button onClick={() => deleteMessage(msg.id)} className="p-2 rounded-lg text-slate/40 hover:text-red-500 hover:bg-red-50 transition-colors" title="Delete">
+                          <Trash2 size={16} />
+                        </button>
+                      </div>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            )}
+
+            {/* Blogs Tab */}
+            {activeTab === 'blogs' && (
+              <div>
+                <div className="flex items-center justify-between mb-4">
+                  <h2 className="font-heading text-lg font-bold text-navy">Blog Posts</h2>
+                  <button
+                    onClick={() => { setShowBlogForm(true); setEditingBlog(null); setBlogForm({ title: '', slug: '', excerpt: '', content: '', category: 'Civil Law', image_url: '', published: false }) }}
+                    className="flex items-center gap-2 px-4 py-2 gold-gradient text-white rounded-lg text-sm font-bold hover:shadow-lg transition-all"
+                  >
+                    <Plus size={16} /> New Post
+                  </button>
+                </div>
+
+                {showBlogForm && (
+                  <motion.div
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="bg-white rounded-xl p-6 border border-cream-dark mb-6"
+                  >
+                    <h3 className="font-heading text-lg font-bold text-navy mb-4">{editingBlog ? 'Edit Post' : 'New Blog Post'}</h3>
+                    <form onSubmit={saveBlog} className="space-y-4">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                          <label className="text-sm font-semibold text-navy mb-1 block">Title *</label>
+                          <input type="text" required value={blogForm.title} onChange={e => setBlogForm(p => ({...p, title: e.target.value, slug: generateSlug(e.target.value)}))} className="w-full px-4 py-2.5 rounded-lg border border-cream-dark bg-cream/30 focus:outline-none focus:border-gold" placeholder="Blog post title" />
+                        </div>
+                        <div>
+                          <label className="text-sm font-semibold text-navy mb-1 block">Slug</label>
+                          <input type="text" value={blogForm.slug} onChange={e => setBlogForm(p => ({...p, slug: e.target.value}))} className="w-full px-4 py-2.5 rounded-lg border border-cream-dark bg-cream/30 focus:outline-none focus:border-gold" placeholder="auto-generated" />
+                        </div>
+                      </div>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                          <label className="text-sm font-semibold text-navy mb-1 block">Category</label>
+                          <select value={blogForm.category} onChange={e => setBlogForm(p => ({...p, category: e.target.value}))} className="w-full px-4 py-2.5 rounded-lg border border-cream-dark bg-cream/30 focus:outline-none focus:border-gold">
+                            {['Civil Law', 'Criminal Law', 'Tax Law', 'Corporate Law', 'Family Law', 'Property Law', 'Legal Updates'].map(c => <option key={c}>{c}</option>)}
+                          </select>
+                        </div>
+                        <div>
+                          <label className="text-sm font-semibold text-navy mb-1 block">Image URL</label>
+                          <input type="text" value={blogForm.image_url} onChange={e => setBlogForm(p => ({...p, image_url: e.target.value}))} className="w-full px-4 py-2.5 rounded-lg border border-cream-dark bg-cream/30 focus:outline-none focus:border-gold" placeholder="https://..." />
+                        </div>
+                      </div>
+                      <div>
+                        <label className="text-sm font-semibold text-navy mb-1 block">Excerpt *</label>
+                        <textarea required rows={2} value={blogForm.excerpt} onChange={e => setBlogForm(p => ({...p, excerpt: e.target.value}))} className="w-full px-4 py-2.5 rounded-lg border border-cream-dark bg-cream/30 focus:outline-none focus:border-gold resize-none" placeholder="Brief summary..." />
+                      </div>
+                      <div>
+                        <label className="text-sm font-semibold text-navy mb-1 block">Content * (HTML supported)</label>
+                        <textarea required rows={10} value={blogForm.content} onChange={e => setBlogForm(p => ({...p, content: e.target.value}))} className="w-full px-4 py-2.5 rounded-lg border border-cream-dark bg-cream/30 focus:outline-none focus:border-gold resize-y font-mono text-sm" placeholder="<h2>Introduction</h2><p>Your content here...</p>" />
+                      </div>
+                      <div className="flex items-center gap-3">
+                        <label className="flex items-center gap-2 cursor-pointer">
+                          <input type="checkbox" checked={blogForm.published} onChange={e => setBlogForm(p => ({...p, published: e.target.checked}))} className="w-4 h-4 rounded border-cream-dark text-gold focus:ring-gold" />
+                          <span className="text-sm font-semibold text-navy">Publish immediately</span>
+                        </label>
+                      </div>
+                      <div className="flex gap-3">
+                        <button type="submit" className="px-6 py-2.5 gold-gradient text-white rounded-lg font-bold text-sm hover:shadow-lg transition-all">
+                          {editingBlog ? 'Update Post' : 'Create Post'}
+                        </button>
+                        <button type="button" onClick={() => { setShowBlogForm(false); setEditingBlog(null) }} className="px-6 py-2.5 border border-cream-dark text-slate rounded-lg text-sm hover:bg-cream transition-colors">
+                          Cancel
+                        </button>
+                      </div>
+                    </form>
+                  </motion.div>
+                )}
+
+                <div className="space-y-3">
+                  {blogs.length === 0 ? (
+                    <div className="text-center py-16 text-slate">No blog posts yet. Create your first post!</div>
+                  ) : blogs.map(blog => (
+                    <div key={blog.id} className="bg-white rounded-xl p-5 border border-cream-dark flex items-start justify-between gap-3">
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-center gap-2 flex-wrap">
+                          <h3 className="font-semibold text-navy">{blog.title}</h3>
+                          <span className={`text-xs px-2 py-0.5 rounded-full font-semibold ${blog.published ? 'bg-green-100 text-green-700' : 'bg-amber-100 text-amber-700'}`}>
+                            {blog.published ? 'Published' : 'Draft'}
+                          </span>
+                          <span className="text-xs px-2 py-0.5 rounded-full bg-navy/5 text-navy">{blog.category}</span>
+                        </div>
+                        <p className="text-slate text-sm mt-1 line-clamp-1">{blog.excerpt}</p>
+                        <p className="text-slate/50 text-xs mt-1">{new Date(blog.created_at).toLocaleDateString()}</p>
+                      </div>
+                      <div className="flex items-center gap-1 shrink-0">
+                        <button onClick={() => toggleBlogPublish(blog)} className={`p-2 rounded-lg transition-colors ${blog.published ? 'text-green-500 hover:bg-green-50' : 'text-amber-500 hover:bg-amber-50'}`} title={blog.published ? 'Unpublish' : 'Publish'}>
+                          {blog.published ? <Eye size={16} /> : <EyeOff size={16} />}
+                        </button>
+                        <button onClick={() => editBlog(blog)} className="p-2 rounded-lg text-slate/40 hover:text-navy hover:bg-cream transition-colors" title="Edit">
+                          <Edit2 size={16} />
+                        </button>
+                        <button onClick={() => deleteBlog(blog.id)} className="p-2 rounded-lg text-slate/40 hover:text-red-500 hover:bg-red-50 transition-colors" title="Delete">
+                          <Trash2 size={16} />
+                        </button>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* Reviews Tab */}
+            {activeTab === 'reviews' && (
+              <div className="space-y-3">
+                {reviews.length === 0 ? (
+                  <div className="text-center py-16 text-slate">No reviews yet.</div>
+                ) : reviews.map(review => (
+                  <div key={review.id} className={`bg-white rounded-xl p-5 border transition-all ${
+                    review.approved ? 'border-cream-dark' : 'border-amber-200'
+                  }`}>
+                    <div className="flex items-start justify-between gap-3">
+                      <div className="flex-1">
+                        <div className="flex items-center gap-2">
+                          <h3 className="font-semibold text-navy">{review.name}</h3>
+                          <div className="flex gap-0.5">
+                            {Array.from({ length: review.rating }).map((_, j) => (
+                              <Star key={j} size={14} className="text-gold fill-gold" />
+                            ))}
+                          </div>
+                          <span className={`text-xs px-2 py-0.5 rounded-full font-semibold ${review.approved ? 'bg-green-100 text-green-700' : 'bg-amber-100 text-amber-700'}`}>
+                            {review.approved ? 'Approved' : 'Pending'}
+                          </span>
+                        </div>
+                        <p className="text-slate text-sm mt-1">{review.comment}</p>
+                        <p className="text-slate/50 text-xs mt-1">{new Date(review.created_at).toLocaleDateString()}</p>
+                      </div>
+                      <div className="flex items-center gap-1 shrink-0">
+                        <button onClick={() => toggleReviewApproval(review)} className={`p-2 rounded-lg transition-colors ${review.approved ? 'text-green-500 hover:bg-green-50' : 'text-amber-500 hover:bg-amber-50'}`} title={review.approved ? 'Unapprove' : 'Approve'}>
+                          {review.approved ? <Check size={16} /> : <Check size={16} />}
+                        </button>
+                        <button onClick={() => deleteReview(review.id)} className="p-2 rounded-lg text-slate/40 hover:text-red-500 hover:bg-red-50 transition-colors" title="Delete">
+                          <Trash2 size={16} />
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
+          </>
+        )}
+      </div>
+    </div>
+  )
+}
