@@ -40,7 +40,7 @@ export default function Footer() {
           {/* About */}
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <img src="/uploads/upload_1.png" alt="Resolution Law Firm" className="h-14 w-auto brightness-0 invert" />
+              <img src="/uploads/upload_1.png" alt="Resolution Law Firm" className="h-16 w-auto" />
             </div>
             <h4 className="font-heading text-lg font-bold text-gold mb-2">Resolution Law Firm</h4>
             <p className="text-white/60 text-sm leading-relaxed mb-5">
@@ -155,11 +155,11 @@ export default function Footer() {
       {/* Bottom Bar with Logo */}
       <div className="border-t border-white/10">
         <div className="max-w-7xl mx-auto px-6 py-5 flex flex-col sm:flex-row justify-between items-center gap-4">
-          <div className="flex items-center gap-3">
-            <img src="/uploads/upload_1.png" alt="Resolution Law Firm" className="h-9 w-auto brightness-0 invert opacity-60" />
+          <div className="flex items-center gap-4">
+            <img src="/uploads/upload_1.png" alt="Resolution Law Firm" className="h-12 w-auto" />
             <div>
-              <p className="text-white/50 text-xs font-semibold">Resolution Law Firm</p>
-              <p className="text-white/30 text-xs">&copy; {new Date().getFullYear()} All rights reserved.</p>
+              <p className="text-white/70 text-sm font-bold font-heading">Resolution Law Firm</p>
+              <p className="text-white/40 text-xs">&copy; {new Date().getFullYear()} All rights reserved.</p>
             </div>
           </div>
           <p className="text-white/40 text-xs">Founded by Umar Azeem Advocate</p>
