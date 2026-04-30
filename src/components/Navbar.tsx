@@ -53,14 +53,14 @@ export default function Navbar() {
       <nav className={`sticky top-0 z-50 transition-all duration-300 ${
         scrolled ? 'bg-white/95 backdrop-blur-md shadow-lg shadow-navy/5' : 'bg-white shadow-sm'
       }`}>
-        <div className="max-w-7xl mx-auto px-3 sm:px-6">
-          <div className="flex justify-between items-center h-14 sm:h-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="flex justify-between items-center h-16 sm:h-20">
             {/* Logo */}
             <Link to="/" className="flex items-center gap-3 group">
               <img
                 src="/uploads/upload_1.png"
                 alt="Resolution Law Firm"
-                className="h-10 sm:h-16 w-auto"
+                className="h-14 sm:h-16 w-auto"
               />
             </Link>
 
@@ -91,10 +91,10 @@ export default function Navbar() {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="lg:hidden p-1.5 sm:p-2 rounded-lg text-navy hover:bg-navy/5 transition-colors active:bg-navy/10"
+              className="lg:hidden p-2 rounded-lg text-navy hover:bg-navy/5 transition-colors"
               aria-label="Toggle menu"
             >
-              {isOpen ? <X size={24} /> : <Menu size={24} />}
+              {isOpen ? <X size={26} /> : <Menu size={26} />}
             </button>
           </div>
         </div>
@@ -109,42 +109,34 @@ export default function Navbar() {
               transition={{ duration: 0.3 }}
               className="lg:hidden overflow-hidden bg-white border-t border-cream-dark"
             >
-              <div className="px-3 py-3 space-y-0.5 max-h-[70vh] overflow-y-auto">
+              <div className="px-4 py-4 space-y-1">
                 {navLinks.map((link) => (
                   <Link
                     key={link.path}
                     to={link.path}
-                    className={`block px-4 py-2.5 rounded-lg text-[15px] font-semibold transition-all ${
+                    className={`block px-4 py-3 rounded-lg text-base font-semibold transition-all ${
                       location.pathname === link.path
                         ? 'text-gold bg-navy/5'
-                        : 'text-navy active:text-gold active:bg-navy/5'
+                        : 'text-navy hover:text-gold hover:bg-navy/5'
                     }`}
                   >
                     {link.name}
                   </Link>
                 ))}
-                <div className="pt-2 space-y-2 border-t border-cream-dark mt-2">
+                <div className="pt-3 space-y-3">
                   <a
                     href="tel:03168078693"
-                    className="block text-center px-5 py-2.5 gold-gradient text-white rounded-lg font-bold tracking-wide text-sm"
+                    className="block text-center px-5 py-3 gold-gradient text-white rounded-lg font-bold tracking-wide"
                   >
-                    <Phone size={14} className="inline mr-2" />
+                    <Phone size={15} className="inline mr-2" />
                     Free Consultation
                   </a>
-                  <a
-                    href="https://wa.me/923168078693"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block text-center px-5 py-2.5 bg-[#25D366] text-white rounded-lg font-bold tracking-wide text-sm"
-                  >
-                    WhatsApp Us
-                  </a>
-                  <div className="flex flex-col gap-1.5 text-xs text-slate px-2 pt-1">
+                  <div className="flex flex-col gap-2 text-sm text-slate px-2">
                     <a href="mailto:resolutionlawfirm265@gmail.com" className="flex items-center gap-2">
-                      <Mail size={12} className="text-gold shrink-0" /> resolutionlawfirm265@gmail.com
+                      <Mail size={14} className="text-gold" /> resolutionlawfirm265@gmail.com
                     </a>
                     <a href="tel:03168078693" className="flex items-center gap-2">
-                      <Phone size={12} className="text-gold shrink-0" /> 0316-8078693
+                      <Phone size={14} className="text-gold" /> 0316-8078693
                     </a>
                   </div>
                 </div>

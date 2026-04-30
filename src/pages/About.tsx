@@ -48,7 +48,6 @@ export default function About() {
               <p className="text-slate text-sm leading-relaxed text-center">
                 Umar Azeem Advocate is a distinguished legal professional with extensive experience in Pakistani courts. He specializes in civil litigation, criminal defense, tax law, corporate matters, and family law. His commitment to justice and client satisfaction has made Resolution Law Firm a trusted name in Lahore's legal community.
               </p>
-
             </div>
           </motion.div>
         </div>

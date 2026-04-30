@@ -83,7 +83,7 @@ export default function Home() {
   return (
     <div>
       {/* HERO */}
-      <section className="relative min-h-[80vh] sm:min-h-[90vh] flex items-center navy-gradient overflow-hidden">
+      <section className="relative min-h-[90vh] flex items-center navy-gradient overflow-hidden">
         <div className="absolute inset-0 hero-pattern" />
         <div className="absolute top-0 right-0 w-1/2 h-full opacity-5">
           <svg viewBox="0 0 200 200" className="w-full h-full">
@@ -92,40 +92,34 @@ export default function Home() {
             <circle cx="100" cy="100" r="40" stroke="#c4973b" strokeWidth="0.2" fill="none" />
           </svg>
         </div>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-14 sm:py-28 relative z-10 w-full">
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-20 sm:py-28 relative z-10 w-full">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
             <motion.div
               initial={{ opacity: 0, x: -40 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
             >
-              {/* Mobile logo - shows only on mobile above heading */}
-              <div className="flex lg:hidden justify-center mb-6">
-                <div className="w-28 h-28 rounded-full bg-navy-light/50 backdrop-blur-sm border-2 border-gold/25 flex items-center justify-center shadow-xl shadow-gold/10">
-                  <img src="/uploads/upload_1.png" alt="Resolution Law Firm Logo" className="w-22 h-22 object-contain" />
-                </div>
+              <div className="flex items-center gap-2 mb-6">
+                <div className="h-px w-10 bg-gold" />
+                <span className="text-gold font-semibold text-sm tracking-widest uppercase">Resolution Law Firm</span>
               </div>
-              <div className="flex items-center gap-2 mb-4 sm:mb-6">
-                <div className="h-px w-8 sm:w-10 bg-gold" />
-                <span className="text-gold font-semibold text-xs sm:text-sm tracking-widest uppercase">Resolution Law Firm</span>
-              </div>
-              <h1 className="font-heading text-4xl sm:text-6xl lg:text-7xl font-bold text-white leading-tight mb-4 sm:mb-6">
+              <h1 className="font-heading text-5xl sm:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6">
                 Resolution
-                <span className="text-gold-gradient block">Law Firm</span>
+                <span className="text-gold-gradient block text-5xl sm:text-6xl lg:text-7xl">Law Firm</span>
               </h1>
-              <p className="text-white/60 text-base sm:text-xl leading-relaxed mb-6 sm:mb-8 max-w-xl">
+              <p className="text-white/60 text-lg sm:text-xl leading-relaxed mb-8 max-w-xl">
                 Led by Umar Azeem Advocate, we provide comprehensive legal services in Civil, Criminal, Tax, Corporate, and Family law across Lahore.
               </p>
-              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+              <div className="flex flex-col sm:flex-row gap-4">
                 <a
                   href="tel:03168078693"
-                  className="gold-gradient text-white px-6 sm:px-8 py-3.5 sm:py-4 rounded-lg font-bold text-sm sm:text-base tracking-wide hover:shadow-xl hover:shadow-gold/20 transition-all flex items-center justify-center gap-2"
+                  className="gold-gradient text-white px-8 py-4 rounded-lg font-bold text-base tracking-wide hover:shadow-xl hover:shadow-gold/20 transition-all flex items-center justify-center gap-2"
                 >
                   <Phone size={18} /> Free Consultation
                 </a>
                 <Link
                   to="/services"
-                  className="border-2 border-white/20 text-white px-6 sm:px-8 py-3.5 sm:py-4 rounded-lg font-bold text-sm sm:text-base tracking-wide hover:border-gold hover:text-gold transition-all flex items-center justify-center gap-2"
+                  className="border-2 border-white/20 text-white px-8 py-4 rounded-lg font-bold text-base tracking-wide hover:border-gold hover:text-gold transition-all flex items-center justify-center gap-2"
                 >
                   Our Services <ArrowRight size={18} />
                 </Link>
@@ -216,7 +210,7 @@ export default function Home() {
       </section>
 
       {/* Services */}
-      <section className="py-14 sm:py-28 max-w-7xl mx-auto px-4 sm:px-6">
+      <section className="py-20 sm:py-28 max-w-7xl mx-auto px-4 sm:px-6">
         <SectionTitle title="Our Legal Services" subtitle="Comprehensive legal solutions tailored to protect your rights and interests" />
         {loading ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -260,7 +254,7 @@ export default function Home() {
       </section>
 
       {/* About / Founder */}
-      <section className="py-14 sm:py-28 navy-gradient relative overflow-hidden">
+      <section className="py-20 sm:py-28 navy-gradient relative overflow-hidden">
         <div className="absolute inset-0 hero-pattern opacity-50" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -309,7 +303,7 @@ export default function Home() {
       </section>
 
       {/* How We Work */}
-      <section className="py-14 sm:py-28 max-w-7xl mx-auto px-4 sm:px-6">
+      <section className="py-20 sm:py-28 max-w-7xl mx-auto px-4 sm:px-6">
         <SectionTitle title="How We Work" subtitle="Our streamlined process ensures efficient and effective legal representation" />
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {howWeWork.map((step, i) => (
@@ -335,7 +329,7 @@ export default function Home() {
       </section>
 
       {/* Why Clients Trust Us */}
-      <section className="py-14 sm:py-28 bg-white">
+      <section className="py-20 sm:py-28 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <SectionTitle title="Why Clients Trust Us" subtitle="We deliver results with integrity, expertise, and unwavering dedication" />
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -360,7 +354,7 @@ export default function Home() {
       </section>
 
       {/* Reviews */}
-      <section className="py-14 sm:py-28 max-w-7xl mx-auto px-4 sm:px-6">
+      <section className="py-20 sm:py-28 max-w-7xl mx-auto px-4 sm:px-6">
         <SectionTitle title="Client Reviews" subtitle="What our clients say about our legal services" />
         {reviews.length > 0 && (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
@@ -446,7 +440,7 @@ export default function Home() {
 
       {/* Latest Blogs */}
       {blogs.length > 0 && (
-        <section className="py-14 sm:py-28 bg-white">
+        <section className="py-20 sm:py-28 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6">
             <SectionTitle title="Latest Legal Insights" subtitle="Stay informed with our expert articles on Pakistani law" />
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -484,7 +478,7 @@ export default function Home() {
       )}
 
       {/* FAQ */}
-      <section className="py-14 sm:py-28 max-w-4xl mx-auto px-4 sm:px-6">
+      <section className="py-20 sm:py-28 max-w-4xl mx-auto px-4 sm:px-6">
         <SectionTitle title="Frequently Asked Questions" subtitle="Find answers to common legal questions" />
         <div className="space-y-3">
           {faqs.map((faq, i) => (
@@ -514,7 +508,7 @@ export default function Home() {
       </section>
 
       {/* Inside Resolution Law Firm - Courts */}
-      <section className="py-14 sm:py-28 bg-white">
+      <section className="py-20 sm:py-28 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <SectionTitle title="Inside Resolution Law Firm" subtitle="We represent clients across all major courts in Pakistan" />
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -553,7 +547,7 @@ export default function Home() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-14 sm:py-28 navy-gradient relative overflow-hidden">
+      <section id="contact" className="py-20 sm:py-28 navy-gradient relative overflow-hidden">
         <div className="absolute inset-0 hero-pattern opacity-50" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
           <SectionTitle title="Contact Us" subtitle="Get in touch with our legal team for expert assistance" light />
