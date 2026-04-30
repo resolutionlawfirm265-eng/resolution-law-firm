@@ -132,11 +132,11 @@ export default function Home() {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="hidden lg:flex justify-center"
             >
-              <div className="relative w-[420px] h-[420px] flex items-center justify-center">
+              <div className="relative w-[480px] h-[480px] flex flex-col items-center justify-center">
                 {/* Outer rotating orbit */}
                 <div className="absolute inset-0 animate-[spin_20s_linear_infinite]">
-                  <svg viewBox="0 0 420 420" className="w-full h-full">
-                    <circle cx="210" cy="210" r="200" stroke="#c4973b" strokeWidth="1" fill="none" opacity="0.2" strokeDasharray="8 6" />
+                  <svg viewBox="0 0 480 480" className="w-full h-full">
+                    <circle cx="240" cy="240" r="230" stroke="#c4973b" strokeWidth="1" fill="none" opacity="0.2" strokeDasharray="8 6" />
                   </svg>
                   {/* Orbit dot 1 */}
                   <div className="absolute top-[10px] left-1/2 -translate-x-1/2 w-4 h-4 rounded-full gold-gradient shadow-lg shadow-gold/40" />
@@ -146,8 +146,8 @@ export default function Home() {
 
                 {/* Middle rotating orbit - reverse */}
                 <div className="absolute inset-[40px] animate-[spin_15s_linear_infinite_reverse]">
-                  <svg viewBox="0 0 340 340" className="w-full h-full">
-                    <circle cx="170" cy="170" r="160" stroke="#c4973b" strokeWidth="0.8" fill="none" opacity="0.15" strokeDasharray="12 8" />
+                  <svg viewBox="0 0 400 400" className="w-full h-full">
+                    <circle cx="200" cy="200" r="190" stroke="#c4973b" strokeWidth="0.8" fill="none" opacity="0.15" strokeDasharray="12 8" />
                   </svg>
                   {/* Orbit dot 3 */}
                   <div className="absolute top-1/2 right-0 -translate-y-1/2 w-3.5 h-3.5 rounded-full gold-gradient shadow-md shadow-gold/30" />
@@ -157,19 +157,26 @@ export default function Home() {
 
                 {/* Inner rotating orbit */}
                 <div className="absolute inset-[80px] animate-[spin_25s_linear_infinite]">
-                  <svg viewBox="0 0 260 260" className="w-full h-full">
-                    <circle cx="130" cy="130" r="120" stroke="#c4973b" strokeWidth="0.6" fill="none" opacity="0.1" strokeDasharray="4 8" />
+                  <svg viewBox="0 0 320 320" className="w-full h-full">
+                    <circle cx="160" cy="160" r="150" stroke="#c4973b" strokeWidth="0.6" fill="none" opacity="0.1" strokeDasharray="4 8" />
                   </svg>
                   {/* Orbit dot 5 */}
                   <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-2.5 h-2.5 rounded-full gold-gradient shadow-sm" />
                 </div>
 
                 {/* Static glow ring */}
-                <div className="absolute inset-[110px] rounded-full border border-gold/10" />
+                <div className="absolute inset-[100px] rounded-full border border-gold/10" />
+                <div className="absolute inset-[115px] rounded-full border border-gold/5" />
 
-                {/* Center logo */}
-                <div className="relative z-10 w-48 h-48 rounded-full bg-navy-light/50 backdrop-blur-sm border-2 border-gold/20 flex items-center justify-center shadow-2xl shadow-gold/10">
-                  <img src="/uploads/upload_1.png" alt="Resolution Law Firm Logo" className="w-36 h-36 object-contain" />
+                {/* Center logo + name */}
+                <div className="relative z-10 flex flex-col items-center">
+                  <div className="w-56 h-56 rounded-full bg-navy-light/50 backdrop-blur-sm border-2 border-gold/25 flex items-center justify-center shadow-2xl shadow-gold/15">
+                    <img src="/uploads/upload_1.png" alt="Resolution Law Firm Logo" className="w-44 h-44 object-contain" />
+                  </div>
+                  <div className="mt-4 text-center">
+                    <h2 className="font-heading text-2xl font-bold text-gold tracking-wide">RESOLUTION</h2>
+                    <p className="text-white/50 text-xs tracking-[0.35em] uppercase font-semibold">Law Firm</p>
+                  </div>
                 </div>
 
                 {/* Floating icons on orbits */}
