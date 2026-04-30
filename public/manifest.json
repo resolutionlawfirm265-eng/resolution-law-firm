@@ -1,0 +1,21 @@
+{
+  "name": "Resolution Law Firm",
+  "short_name": "Resolution Law",
+  "description": "Expert Legal Services in Lahore - Civil, Criminal, Tax, Corporate & Family Law",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#1a2744",
+  "theme_color": "#c4973b",
+  "icons": [
+    {
+      "src": "/uploads/upload_1.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

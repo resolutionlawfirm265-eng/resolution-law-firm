@@ -1,5 +1,22 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" rx="12" fill="#1a2744"/>
-  <text x="32" y="44" font-family="Georgia, serif" font-size="36" font-weight="bold" fill="#c4973b" text-anchor="middle">R</text>
-  <line x1="14" y1="52" x2="50" y2="52" stroke="#c4973b" stroke-width="2"/>
+  <rect width="64" height="64" rx="8" fill="#1a2744"/>
+  <g transform="translate(10, 6) scale(0.68)">
+    <!-- Pillar base -->
+    <rect x="24" y="52" width="16" height="4" rx="1" fill="#c4973b"/>
+    <rect x="26" y="16" width="12" height="36" rx="1" fill="white" opacity="0.9"/>
+    <rect x="24" y="14" width="16" height="4" rx="1" fill="white"/>
+    <!-- Pillar top -->
+    <rect x="22" y="10" width="20" height="4" rx="1" fill="white"/>
+    <!-- Scale -->
+    <circle cx="32" cy="8" r="2" fill="#c4973b"/>
+    <line x1="22" y1="8" x2="42" y2="8" stroke="#c4973b" stroke-width="1.5"/>
+    <line x1="22" y1="8" x2="18" y2="14" stroke="#c4973b" stroke-width="1"/>
+    <line x1="42" y1="8" x2="46" y2="14" stroke="#c4973b" stroke-width="1"/>
+    <path d="M14 14 Q18 18 22 14" fill="none" stroke="#c4973b" stroke-width="1.2"/>
+    <path d="M42 14 Q46 18 50 14" fill="none" stroke="#c4973b" stroke-width="1.2"/>
+    <!-- R letter arc -->
+    <path d="M 8 58 A 28 28 0 0 1 8 6" fill="none" stroke="#1a2744" stroke-width="3"/>
+    <path d="M 8 58 A 28 28 0 0 1 8 6" fill="none" stroke="#c4973b" stroke-width="2" opacity="0.6"/>
+    <text x="6" y="52" font-family="Georgia,serif" font-size="38" font-weight="bold" fill="white" opacity="0.15">R</text>
+  </g>
 </svg>

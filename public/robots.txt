@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://resolutionlawfirm.com.pk/sitemap.xml
+
+# Resolution Law Firm - Expert Legal Services in Lahore
+# Civil, Criminal, Tax, Corporate & Family Law
