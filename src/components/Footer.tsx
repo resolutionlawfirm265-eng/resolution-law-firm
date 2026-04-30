@@ -8,7 +8,7 @@ export default function Footer() {
     <footer className="navy-gradient text-white">
       {/* CTA Bar */}
       <div className="gold-gradient">
-        <div className="max-w-7xl mx-auto px-6 py-6 flex flex-col md:flex-row items-center justify-between gap-4">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-5 sm:py-6 flex flex-col md:flex-row items-center justify-between gap-3 sm:gap-4">
           <div>
             <h3 className="font-heading text-xl sm:text-2xl font-bold text-white">Need Legal Assistance?</h3>
             <p className="text-white/80 text-sm">Get a free consultation with our expert lawyers today.</p>
@@ -18,7 +18,7 @@ export default function Footer() {
               href="https://wa.me/923168078693?text=Hello%2C%20I%20need%20legal%20assistance%20from%20Resolution%20Law%20Firm"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-6 py-3 bg-[#25D366] text-white font-bold rounded-lg hover:bg-[#1ebe5d] transition-colors flex items-center gap-2"
+              className="px-4 sm:px-6 py-2.5 sm:py-3 bg-[#25D366] text-white font-bold rounded-lg hover:bg-[#1ebe5d] transition-colors flex items-center gap-2 text-sm sm:text-base"
             >
               <svg viewBox="0 0 32 32" className="w-5 h-5 fill-white">
                 <path d="M16.004 0h-.008C7.174 0 0 7.176 0 16c0 3.5 1.128 6.744 3.046 9.378L1.054 31.29l6.118-1.958C9.72 30.986 12.736 32 16.004 32 24.826 32 32 24.822 32 16S24.826 0 16.004 0zm9.312 22.594c-.39 1.1-1.932 2.014-3.178 2.28-.852.18-1.964.324-5.71-1.228-4.796-1.986-7.882-6.86-8.122-7.18-.228-.32-1.928-2.568-1.928-4.896 0-2.328 1.22-3.47 1.654-3.944.39-.426 1.02-.614 1.624-.614.196 0 .372.01.53.018.434.018.652.042.938.726.358.852 1.228 2.998 1.336 3.216.11.22.222.518.072.818-.14.308-.264.498-.484.766-.22.268-.428.472-.648.76-.198.25-.422.52-.176.954.246.434 1.094 1.804 2.35 2.922 1.616 1.438 2.978 1.886 3.402 2.094.326.16.714.128.97-.148.324-.354.724-.94 1.132-1.518.29-.414.658-.466 1.022-.318.368.14 2.326 1.098 2.724 1.296.398.2.664.296.762.462.096.166.096.962-.294 2.062z"/>
@@ -27,7 +27,7 @@ export default function Footer() {
             </a>
             <a
               href="tel:03168078693"
-              className="px-6 py-3 bg-white text-navy font-bold rounded-lg hover:bg-cream transition-colors flex items-center gap-2"
+              className="px-4 sm:px-6 py-2.5 sm:py-3 bg-white text-navy font-bold rounded-lg hover:bg-cream transition-colors flex items-center gap-2 text-sm sm:text-base"
             >
               <Phone size={18} /> Call Now
             </a>
@@ -35,8 +35,8 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 py-12 sm:py-16">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-10 sm:py-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10">
           {/* About */}
           <div>
             <div className="flex items-center gap-3 mb-4">

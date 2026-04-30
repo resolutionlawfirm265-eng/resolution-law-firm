@@ -6,7 +6,7 @@ export default function WhatsAppButton() {
       href="https://wa.me/923168078693?text=Hello%2C%20I%20need%20legal%20assistance%20from%20Resolution%20Law%20Firm"
       target="_blank"
       rel="noopener noreferrer"
-      className="fixed bottom-6 right-6 z-50"
+      className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50"
       initial={{ scale: 0 }}
       animate={{ scale: 1 }}
       transition={{ delay: 1, type: 'spring' }}
@@ -17,7 +17,7 @@ export default function WhatsAppButton() {
       <img
         src="/images/whatsapp-icon.png"
         alt="WhatsApp"
-        className="w-[60px] h-[60px] drop-shadow-lg"
+        className="w-[52px] h-[52px] sm:w-[60px] sm:h-[60px] drop-shadow-lg"
       />
     </motion.a>
   )

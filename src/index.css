@@ -25,12 +25,28 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
   font-family: 'Source Sans 3', 'Segoe UI', sans-serif;
   background-color: #f8f5ef;
   color: #1e293b;
+  overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Touch-friendly tap targets */
+@media (max-width: 640px) {
+  a, button {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  input, textarea, select {
+    font-size: 16px !important;
+  }
 }
 
 .font-heading {
