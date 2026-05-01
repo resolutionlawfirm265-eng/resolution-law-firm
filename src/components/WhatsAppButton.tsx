@@ -6,18 +6,18 @@ export default function WhatsAppButton() {
       href="https://wa.me/923168078693?text=Hello%2C%20I%20need%20legal%20assistance%20from%20Resolution%20Law%20Firm"
       target="_blank"
       rel="noopener noreferrer"
-      className="fixed bottom-6 right-6 z-50"
+      className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50"
       initial={{ scale: 0 }}
       animate={{ scale: 1 }}
       transition={{ delay: 1, type: 'spring' }}
-      whileHover={{ scale: 1.1 }}
+      whileHover={{ scale: 1.15 }}
       whileTap={{ scale: 0.9 }}
       aria-label="Chat on WhatsApp"
     >
       <img
-        src="/images/whatsapp-icon.png"
+        src="/images/whatsapp-3d.png"
         alt="WhatsApp"
-        className="w-[60px] h-[60px] drop-shadow-lg"
+        className="w-14 h-14 sm:w-16 sm:h-16 drop-shadow-xl"
       />
     </motion.a>
   )
