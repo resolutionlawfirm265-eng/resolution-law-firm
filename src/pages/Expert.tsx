@@ -32,14 +32,14 @@ export default function Expert() {
             <motion.div initial={{ opacity: 0, x: -30 }} animate={{ opacity: 1, x: 0 }}>
               <div className="flex items-center gap-2 mb-4">
                 <div className="h-px w-10 bg-gold" />
-                <span className="text-gold font-semibold text-sm tracking-widest uppercase">Meet Our Expert</span>
+                <span className="text-gold font-semibold text-sm tracking-widest uppercase">Meet Our Experts</span>
               </div>
               <h1 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-4">
-                Umar Azeem
-                <span className="text-gold-gradient block">Advocate</span>
+                Our Legal
+                <span className="text-gold-gradient block">Experts</span>
               </h1>
               <p className="text-white/60 text-lg leading-relaxed mb-6">
-                Founder of Resolution Law Firm, Umar Azeem Advocate is a distinguished legal professional with extensive experience in Pakistani courts. His commitment to justice and client satisfaction has made Resolution Law Firm a trusted name in Lahore's legal community.
+                Resolution Law Firm is led by expert advocates Umar Azeem and Usman Azeem, distinguished legal professionals with extensive experience in Pakistani courts. Their combined commitment to justice and client satisfaction has made Resolution Law Firm a trusted name in Lahore's legal community.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <a
@@ -62,12 +62,13 @@ export default function Expert() {
               transition={{ delay: 0.2 }}
               className="flex justify-center"
             >
-              <div className="bg-white/5 backdrop-blur rounded-2xl p-8 sm:p-10 border border-white/10 max-w-sm w-full">
-                <div className="w-28 h-28 rounded-full gold-gradient mx-auto mb-6 flex items-center justify-center">
-                  <span className="font-heading text-5xl font-bold text-white">UA</span>
+              <div className="space-y-6 w-full max-w-sm">
+              <div className="bg-white/5 backdrop-blur rounded-2xl p-6 sm:p-8 border border-white/10">
+                <div className="w-20 h-20 rounded-full gold-gradient mx-auto mb-4 flex items-center justify-center">
+                  <span className="font-heading text-3xl font-bold text-white">UA</span>
                 </div>
-                <h2 className="font-heading text-2xl font-bold text-white text-center">Umar Azeem</h2>
-                <p className="text-gold text-center font-semibold mb-6">Advocate & Founder</p>
+                <h2 className="font-heading text-xl font-bold text-white text-center">Umar Azeem</h2>
+                <p className="text-gold text-center font-semibold text-sm mb-4">Advocate & Founder</p>
                 <div className="space-y-3">
                   <div className="flex items-center gap-3 text-white/60 text-sm">
                     <MapPin size={16} className="text-gold shrink-0" />
@@ -82,6 +83,24 @@ export default function Expert() {
                     <span className="break-all">resolutionlawfirm265@gmail.com</span>
                   </div>
                 </div>
+              </div>
+              <div className="bg-white/5 backdrop-blur rounded-2xl p-6 sm:p-8 border border-white/10">
+                <div className="w-20 h-20 rounded-full gold-gradient mx-auto mb-4 flex items-center justify-center">
+                  <span className="font-heading text-3xl font-bold text-white">UA</span>
+                </div>
+                <h2 className="font-heading text-xl font-bold text-white text-center">Usman Azeem</h2>
+                <p className="text-gold text-center font-semibold text-sm mb-4">Advocate</p>
+                <div className="space-y-2">
+                  <div className="flex items-center gap-3 text-white/60 text-sm">
+                    <MapPin size={14} className="text-gold shrink-0" />
+                    <span>Lahore, Pakistan</span>
+                  </div>
+                  <div className="flex items-center gap-3 text-white/60 text-sm">
+                    <Phone size={14} className="text-gold shrink-0" />
+                    <span>0316-8078693</span>
+                  </div>
+                </div>
+              </div>
               </div>
             </motion.div>
           </div>

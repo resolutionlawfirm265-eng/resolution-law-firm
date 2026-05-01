@@ -13,8 +13,6 @@ import Reviews from './pages/Reviews'
 import Contact from './pages/Contact'
 import AdminLogin from './pages/AdminLogin'
 import AdminDashboard from './pages/AdminDashboard'
-import WhatsAppButton from './components/WhatsAppButton'
-import SocialSidebar from './components/SocialSidebar'
 
 export default function App() {
   return (
@@ -37,8 +35,6 @@ export default function App() {
         </Routes>
       </main>
       <Footer />
-      <WhatsAppButton />
-      <SocialSidebar />
     </div>
   )
 }

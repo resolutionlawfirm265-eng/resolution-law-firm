@@ -64,8 +64,9 @@ export default function Home() {
             <motion.div initial={{ opacity: 0, x: -40 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }}>
               {/* Mobile logo */}
               <div className="flex lg:hidden justify-center mb-6">
-                <div className="w-28 h-28 rounded-full bg-navy-light/50 backdrop-blur-sm border-2 border-gold/25 flex items-center justify-center shadow-xl shadow-gold/10">
-                  <img src="/uploads/upload_1.png" alt="Logo" className="w-22 h-22 object-contain" />
+                <div className="w-24 h-24 rounded-full bg-navy-light/50 backdrop-blur-sm border-2 border-gold/25 flex flex-col items-center justify-center shadow-xl shadow-gold/10">
+                  <Scale size={28} className="text-gold mb-1" />
+                  <span className="font-heading text-xs font-bold text-gold tracking-wider">RESOLUTION</span>
                 </div>
               </div>
               <div className="flex items-center gap-2 mb-4">
@@ -112,16 +113,14 @@ export default function Home() {
                 {/* Glow rings */}
                 <div className="absolute inset-[110px] rounded-full border border-gold/10" />
                 <div className="absolute inset-[125px] rounded-full border border-gold/5" />
-                {/* 3D Logo center — BIGGER */}
+                {/* Center text — firm name */}
                 <div className="relative z-10 flex flex-col items-center">
                   <div className="w-64 h-64 rounded-full flex items-center justify-center shadow-2xl shadow-gold/20" style={{background:'radial-gradient(circle at 35% 35%, #2a3d5e 0%, #1a2744 60%, #0f1a2e 100%)'}}>
-                    <div className="w-60 h-60 rounded-full border-2 border-gold/30 flex items-center justify-center" style={{boxShadow:'inset 0 -8px 20px rgba(196,151,59,0.1), 0 8px 32px rgba(196,151,59,0.15)'}}>
-                      <img src="/uploads/upload_1.png" alt="Resolution Law Firm Logo" className="w-48 h-48 object-contain drop-shadow-2xl" style={{filter:'drop-shadow(0 4px 16px rgba(196,151,59,0.3))'}} />
+                    <div className="w-60 h-60 rounded-full border-2 border-gold/30 flex flex-col items-center justify-center" style={{boxShadow:'inset 0 -8px 20px rgba(196,151,59,0.1), 0 8px 32px rgba(196,151,59,0.15)'}}>
+                      <Scale size={48} className="text-gold mb-3" />
+                      <h2 className="font-heading text-3xl font-bold text-gold tracking-wide" style={{textShadow:'0 2px 12px rgba(196,151,59,0.3)'}}>RESOLUTION</h2>
+                      <p className="text-white/50 text-xs tracking-[0.4em] uppercase font-semibold mt-1">Law Firm</p>
                     </div>
-                  </div>
-                  <div className="mt-5 text-center">
-                    <h2 className="font-heading text-3xl font-bold text-gold tracking-wide" style={{textShadow:'0 2px 12px rgba(196,151,59,0.3)'}}>RESOLUTION</h2>
-                    <p className="text-white/50 text-xs tracking-[0.4em] uppercase font-semibold mt-1">Law Firm</p>
                   </div>
                 </div>
                 {/* Floating icons */}
