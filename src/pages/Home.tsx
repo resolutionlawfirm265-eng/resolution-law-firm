@@ -171,7 +171,7 @@ export default function Home() {
                 {/* Center logo + name */}
                 <div className="relative z-10 flex flex-col items-center">
                   <div className="w-56 h-56 rounded-full bg-navy-light/50 backdrop-blur-sm border-2 border-gold/25 flex items-center justify-center shadow-2xl shadow-gold/15">
-                    <img src="/uploads/upload_1.png" alt="Resolution Law Firm Logo" className="w-44 h-44 object-contain" />
+                    <img src="/uploads/logo_new.png" alt="Resolution Law Firm Logo" className="w-44 h-44 object-contain" />
                   </div>
                   <div className="mt-4 text-center">
                     <h2 className="font-heading text-2xl font-bold text-gold tracking-wide">RESOLUTION</h2>

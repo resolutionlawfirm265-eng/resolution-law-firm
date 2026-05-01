@@ -6,10 +6,12 @@ const EMAIL_URL = 'mailto:resolutionlawfirm265@gmail.com'
 const PHONE_URL = 'tel:03168078693'
 
 const socials = [
-  { label: 'Facebook', href: FACEBOOK_URL, icon: '/images/facebook-3d.png' },
-  { label: 'WhatsApp', href: WHATSAPP_URL, icon: '/images/whatsapp-3d.png' },
-  { label: 'Email', href: EMAIL_URL, icon: '/images/email-3d.png' },
-  { label: 'Call Us', href: PHONE_URL, icon: '/images/phone-3d.png' },
+  { label: 'Facebook', href: FACEBOOK_URL, icon: '/images/3d-facebook.png' },
+  { label: 'WhatsApp', href: WHATSAPP_URL, icon: '/images/3d-whatsapp.png' },
+  { label: 'Instagram', href: '#', icon: '/images/3d-instagram.png' },
+  { label: 'LinkedIn', href: '#', icon: '/images/3d-linkedin.png' },
+  { label: 'Email', href: EMAIL_URL, icon: '/images/3d-email.png' },
+  { label: 'Call Us', href: PHONE_URL, icon: '/images/3d-phone.png' },
 ]
 
 export default function SocialSidebar() {
@@ -18,26 +20,29 @@ export default function SocialSidebar() {
       initial={{ x: -60, opacity: 0 }}
       animate={{ x: 0, opacity: 1 }}
       transition={{ delay: 1.5, duration: 0.5 }}
-      className="fixed left-0 top-1/2 -translate-y-1/2 z-40 hidden md:flex flex-col gap-1"
+      className="fixed left-0 top-1/2 -translate-y-1/2 z-40 hidden md:flex flex-col gap-1 py-2 px-1 bg-white/80 backdrop-blur-md rounded-r-xl shadow-lg border border-l-0 border-cream-dark"
     >
-      {socials.map((s) => (
-        <a
+      {socials.map((s, i) => (
+        <motion.a
           key={s.label}
           href={s.href}
           target={s.href.startsWith('http') ? '_blank' : undefined}
           rel={s.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-          className="group flex items-center bg-white/90 backdrop-blur-sm hover:bg-white shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden rounded-r-xl"
-          style={{ width: '48px', transitionProperty: 'width' }}
-          onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.width = '170px' }}
-          onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.width = '48px' }}
+          className="group relative flex items-center justify-center w-12 h-12 rounded-lg hover:bg-cream/50 transition-all"
+          whileHover={{ scale: 1.15, x: 4 }}
+          whileTap={{ scale: 0.95 }}
+          title={s.label}
         >
-          <div className="w-[48px] h-[48px] flex items-center justify-center shrink-0 p-1.5">
-            <img src={s.icon} alt={s.label} className="w-9 h-9 object-contain drop-shadow-sm" />
-          </div>
-          <span className="text-navy text-sm font-bold whitespace-nowrap pr-4">
+          <img
+            src={s.icon}
+            alt={s.label}
+            className="w-9 h-9 object-contain drop-shadow-md group-hover:drop-shadow-xl transition-all"
+          />
+          {/* Tooltip */}
+          <span className="absolute left-full ml-2 px-2.5 py-1 bg-navy text-white text-xs font-semibold rounded-md whitespace-nowrap opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity shadow-lg">
             {s.label}
           </span>
-        </a>
+        </motion.a>
       ))}
     </motion.div>
   )

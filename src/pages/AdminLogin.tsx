@@ -42,7 +42,7 @@ export default function AdminLogin() {
         className="w-full max-w-md"
       >
         <div className="text-center mb-8">
-          <img src="/uploads/upload_1.png" alt="Logo" className="h-20 mx-auto mb-4 brightness-0 invert" />
+          <img src="/uploads/logo_new.png" alt="Logo" className="h-20 mx-auto mb-4 brightness-0 invert" />
           <h1 className="font-heading text-2xl font-bold text-white">Admin Panel</h1>
           <p className="text-white/50 text-sm">Resolution Law Firm CMS</p>
         </div>

@@ -39,15 +39,15 @@ export default function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <img src="/uploads/upload_1.png" alt="Resolution Law Firm" className="h-16 w-auto" />
+              <img src="/uploads/logo_new.png" alt="Resolution Law Firm" className="h-16 w-auto" />
             </div>
             <h4 className="font-heading text-lg font-bold text-gold mb-2">Resolution Law Firm</h4>
             <p className="text-white/60 text-sm leading-relaxed mb-5">Resolution Law Firm provides expert legal services across Pakistan. Founded by Umar Azeem Advocate, we are committed to delivering justice and protecting your rights.</p>
             <div className="flex gap-2">
-              <a href={FACEBOOK_URL} target="_blank" rel="noopener noreferrer" className="hover:scale-110 transition-transform" aria-label="Facebook"><img src="/images/facebook-3d.png" alt="Facebook" className="w-11 h-11 object-contain drop-shadow-md" /></a>
-              <a href="https://wa.me/923168078693" target="_blank" rel="noopener noreferrer" className="hover:scale-110 transition-transform" aria-label="WhatsApp"><img src="/images/whatsapp-3d.png" alt="WhatsApp" className="w-11 h-11 object-contain drop-shadow-md" /></a>
-              <a href="#" className="hover:scale-110 transition-transform" aria-label="Instagram"><img src="/images/instagram-3d.png" alt="Instagram" className="w-11 h-11 object-contain drop-shadow-md" /></a>
-              <a href="#" className="hover:scale-110 transition-transform" aria-label="LinkedIn"><img src="/images/linkedin-3d.png" alt="LinkedIn" className="w-11 h-11 object-contain drop-shadow-md" /></a>
+              <a href={FACEBOOK_URL} target="_blank" rel="noopener noreferrer" className="hover:scale-110 transition-transform" aria-label="Facebook"><img src="/images/3d-facebook.png" alt="Facebook" className="w-11 h-11 object-contain drop-shadow-md" /></a>
+              <a href="https://wa.me/923168078693" target="_blank" rel="noopener noreferrer" className="hover:scale-110 transition-transform" aria-label="WhatsApp"><img src="/images/3d-whatsapp.png" alt="WhatsApp" className="w-11 h-11 object-contain drop-shadow-md" /></a>
+              <a href="#" className="hover:scale-110 transition-transform" aria-label="Instagram"><img src="/images/3d-instagram.png" alt="Instagram" className="w-11 h-11 object-contain drop-shadow-md" /></a>
+              <a href="#" className="hover:scale-110 transition-transform" aria-label="LinkedIn"><img src="/images/3d-linkedin.png" alt="LinkedIn" className="w-11 h-11 object-contain drop-shadow-md" /></a>
             </div>
           </div>
           <div>
@@ -82,7 +82,7 @@ export default function Footer() {
       <div className="border-t border-white/10">
         <div className="max-w-7xl mx-auto px-6 py-5 flex flex-col sm:flex-row justify-between items-center gap-4">
           <div className="flex items-center gap-4">
-            <img src="/uploads/upload_1.png" alt="Resolution Law Firm" className="h-12 w-auto" />
+            <img src="/uploads/logo_new.png" alt="Resolution Law Firm" className="h-12 w-auto" />
             <div>
               <p className="text-white/70 text-sm font-bold font-heading">Resolution Law Firm</p>
               <p className="text-white/40 text-xs">&copy; {new Date().getFullYear()} All rights reserved.</p>

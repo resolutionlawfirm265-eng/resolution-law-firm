@@ -171,7 +171,7 @@ export default function AdminDashboard() {
       <div className="navy-gradient">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <img src="/uploads/upload_1.png" alt="Logo" className="h-10 brightness-0 invert" />
+            <img src="/uploads/logo_new.png" alt="Logo" className="h-10 brightness-0 invert" />
             <div>
               <h1 className="font-heading text-lg font-bold text-white">Admin Dashboard</h1>
               <p className="text-white/40 text-xs">Resolution Law Firm CMS</p>

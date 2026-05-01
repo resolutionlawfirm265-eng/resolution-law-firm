@@ -58,7 +58,7 @@ export default function Navbar() {
             {/* Logo */}
             <Link to="/" className="flex items-center gap-3 group">
               <img
-                src="/uploads/upload_1.png"
+                src="/uploads/logo_new.png"
                 alt="Resolution Law Firm"
                 className="h-14 sm:h-16 w-auto"
               />
