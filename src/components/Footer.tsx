@@ -80,13 +80,27 @@ export default function Footer() {
         </div>
       </div>
       <div className="border-t border-white/10">
-        <div className="max-w-7xl mx-auto px-6 py-5 flex flex-col sm:flex-row justify-between items-center gap-4">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-5 flex flex-col sm:flex-row justify-between items-center gap-4">
           <div className="flex items-center gap-4">
             <img src="/uploads/logo_new.png" alt="Resolution Law Firm" className="h-12 w-auto" />
             <div>
               <p className="text-white/70 text-sm font-bold font-heading">Resolution Law Firm</p>
               <p className="text-white/40 text-xs">&copy; {new Date().getFullYear()} All rights reserved.</p>
             </div>
+          </div>
+          <div className="flex items-center gap-3">
+            <a href={FACEBOOK_URL} target="_blank" rel="noopener noreferrer" className="hover:scale-110 transition-transform" aria-label="Facebook">
+              <img src="/images/3d-facebook.png" alt="Facebook" className="w-8 h-8 object-contain drop-shadow-sm" />
+            </a>
+            <a href="https://wa.me/923168078693" target="_blank" rel="noopener noreferrer" className="hover:scale-110 transition-transform" aria-label="WhatsApp">
+              <img src="/images/3d-whatsapp.png" alt="WhatsApp" className="w-8 h-8 object-contain drop-shadow-sm" />
+            </a>
+            <a href="#" className="hover:scale-110 transition-transform" aria-label="Instagram">
+              <img src="/images/3d-instagram.png" alt="Instagram" className="w-8 h-8 object-contain drop-shadow-sm" />
+            </a>
+            <a href="#" className="hover:scale-110 transition-transform" aria-label="LinkedIn">
+              <img src="/images/3d-linkedin.png" alt="LinkedIn" className="w-8 h-8 object-contain drop-shadow-sm" />
+            </a>
           </div>
           <p className="text-white/40 text-xs">Founded by Umar Azeem Advocate</p>
         </div>
