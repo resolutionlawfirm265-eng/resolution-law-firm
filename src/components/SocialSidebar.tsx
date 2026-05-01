@@ -1,56 +1,48 @@
 import { motion } from 'framer-motion'
 
 const FACEBOOK_URL = 'https://www.facebook.com/people/Resolution-Lawyers-Group/61582292877345/'
+const WHATSAPP_URL = 'https://wa.me/923168078693?text=Hello%2C%20I%20need%20legal%20assistance%20from%20Resolution%20Law%20Firm'
 const PHONE_URL = 'tel:03168078693'
-const INSTAGRAM_URL = '#'
-const LINKEDIN_URL = '#'
+const EMAIL_URL = 'mailto:resolutionlawfirm265@gmail.com'
 
 const socials = [
   {
     label: 'Facebook',
     href: FACEBOOK_URL,
     bg: '#1877F2',
-    bgHover: '#0d65d9',
-    // Official Facebook "f" logo (Font Awesome brands)
     icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" className="w-5 h-5 fill-white">
-        <path d="M512 256C512 114.6 397.4 0 256 0S0 114.6 0 256C0 376 82.7 476.8 194.2 504.5V334.2H141.4V256h52.8V222.3c0-87.1 39.4-127.5 125-127.5c16.2 0 44.2 3.2 55.7 6.4V172c-6-.6-16.5-1-29.6-1c-42 0-58.2 15.9-58.2 57.2V256h83.6l-14.4 78.2H287V510.1C413.8 494.8 512 386.9 512 256h0z"/>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" className="w-4 h-4 sm:w-5 sm:h-5 fill-white">
+        <path d="M80 299.3V512H196V299.3h86.5l18-97.8H196V166.9c0-51.7 20.3-71.5 72.7-71.5c16.3 0 29.4.4 37 1.2V7.9C291.4 4 256.4 0 236.2 0C129.3 0 80 50.5 80 159.4v42.1H14v97.8H80z"/>
       </svg>
     ),
   },
   {
-    label: 'Call Us',
-    href: PHONE_URL,
-    bg: '#1a2744',
-    bgHover: '#2d3f5e',
-    // Phone handset icon
+    label: 'WhatsApp',
+    href: WHATSAPP_URL,
+    bg: '#25D366',
     icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" className="w-5 h-5 fill-white">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" className="w-4 h-4 sm:w-5 sm:h-5 fill-white">
+        <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
+      </svg>
+    ),
+  },
+  {
+    label: 'Call',
+    href: PHONE_URL,
+    bg: '#c4973b',
+    icon: (
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" className="w-4 h-4 sm:w-5 sm:h-5 fill-white">
         <path d="M164.9 24.6c-7.7-18.6-28-28.5-47.4-23.2l-88 24C12.1 30.2 0 46 0 64C0 311.4 200.6 512 448 512c18 0 33.8-12.1 38.6-29.5l24-88c5.3-19.4-4.6-39.7-23.2-47.4l-96-40c-16.3-6.8-35.2-2.1-46.3 11.6L304.7 368C234.3 334.7 177.3 277.7 144 207.3L193.3 167c13.7-11.2 18.4-30 11.6-46.3l-40-96z"/>
       </svg>
     ),
   },
   {
-    label: 'Instagram',
-    href: INSTAGRAM_URL,
-    bg: '#E4405F',
-    bgHover: '#c13584',
-    // Official Instagram logo (Font Awesome brands)
+    label: 'Email',
+    href: EMAIL_URL,
+    bg: '#1a2744',
     icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" className="w-5 h-5 fill-white">
-        <path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/>
-      </svg>
-    ),
-  },
-  {
-    label: 'LinkedIn',
-    href: LINKEDIN_URL,
-    bg: '#0A66C2',
-    bgHover: '#004182',
-    // Official LinkedIn logo (Font Awesome brands)
-    icon: (
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" className="w-5 h-5 fill-white">
-        <path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" className="w-4 h-4 sm:w-5 sm:h-5 fill-white">
+        <path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"/>
       </svg>
     ),
   },
@@ -59,10 +51,10 @@ const socials = [
 export default function SocialSidebar() {
   return (
     <motion.div
-      initial={{ x: -60, opacity: 0 }}
+      initial={{ x: 60, opacity: 0 }}
       animate={{ x: 0, opacity: 1 }}
       transition={{ delay: 1.5, duration: 0.5 }}
-      className="fixed left-0 top-1/2 -translate-y-1/2 z-40 hidden md:flex flex-col rounded-r-xl overflow-hidden shadow-xl"
+      className="fixed right-0 top-1/2 -translate-y-1/2 z-40 flex flex-col rounded-l-xl overflow-hidden shadow-xl"
     >
       {socials.map((s) => (
         <a
@@ -70,26 +62,11 @@ export default function SocialSidebar() {
           href={s.href}
           target={s.href.startsWith('http') ? '_blank' : undefined}
           rel={s.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-          className="group flex items-center transition-all duration-300 overflow-hidden"
-          style={{ width: '48px', backgroundColor: s.bg, transitionProperty: 'width, background-color' }}
-          onMouseEnter={(e) => { 
-            const el = e.currentTarget as HTMLElement;
-            el.style.width = '170px';
-            el.style.backgroundColor = s.bgHover;
-          }}
-          onMouseLeave={(e) => { 
-            const el = e.currentTarget as HTMLElement;
-            el.style.width = '48px';
-            el.style.backgroundColor = s.bg;
-          }}
+          className="w-10 sm:w-12 h-10 sm:h-12 flex items-center justify-center transition-all duration-200 hover:brightness-110 hover:w-12 sm:hover:w-14"
+          style={{ backgroundColor: s.bg }}
           aria-label={s.label}
         >
-          <div className="w-[48px] h-[48px] flex items-center justify-center shrink-0">
-            {s.icon}
-          </div>
-          <span className="text-white text-sm font-semibold whitespace-nowrap pr-4">
-            {s.label}
-          </span>
+          {s.icon}
         </a>
       ))}
     </motion.div>

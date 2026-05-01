@@ -62,16 +62,18 @@ export default function Home() {
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             {/* Left — Text */}
             <motion.div initial={{ opacity: 0, x: -40 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.8 }}>
-              {/* Mobile logo */}
+              {/* Mobile logo — prominent */}
               <div className="flex lg:hidden justify-center mb-6">
-                <img src="/uploads/upload_1.png" alt="Resolution Law Firm Logo" className="w-44 h-auto object-contain drop-shadow-lg" />
+                <div className="w-36 h-36 rounded-full bg-navy-light/40 backdrop-blur-sm border-2 border-gold/20 flex items-center justify-center shadow-xl" style={{boxShadow:'0 0 40px rgba(196,151,59,0.15)'}}>
+                  <img src="/uploads/upload_1.png" alt="Resolution Law Firm Logo" className="w-28 h-28 object-contain" />
+                </div>
               </div>
               <div className="flex items-center gap-2 mb-4">
                 <div className="h-px w-8 sm:w-10 bg-gold" />
                 <span className="text-gold font-semibold text-xs sm:text-sm tracking-widest uppercase">Resolution Law Firm</span>
               </div>
-              <h1 className="font-heading text-4xl sm:text-6xl lg:text-7xl font-bold text-white leading-tight mb-4 sm:mb-6">
-                Resolution
+              <h1 className="font-heading text-4xl sm:text-6xl lg:text-7xl font-bold leading-tight mb-4 sm:mb-6">
+                <span className="text-white">Resolution</span>
                 <span className="text-gold-gradient block">Law Firm</span>
               </h1>
               <p className="text-white/60 text-base sm:text-xl leading-relaxed mb-6 sm:mb-8 max-w-xl">
@@ -110,10 +112,18 @@ export default function Home() {
                 {/* Glow rings */}
                 <div className="absolute inset-[110px] rounded-full border border-gold/10" />
                 <div className="absolute inset-[125px] rounded-full border border-gold/5" />
-                {/* Center logo */}
+                {/* Center logo — bigger & prominent */}
                 <div className="relative z-10 flex items-center justify-center">
-                  <img src="/uploads/upload_1.png" alt="Resolution Law Firm Logo" className="w-64 h-64 object-contain drop-shadow-2xl" style={{filter:'drop-shadow(0 8px 32px rgba(196,151,59,0.2))'}} />
+                  <div className="w-72 h-72 rounded-full bg-navy-light/40 backdrop-blur-sm border-2 border-gold/20 flex items-center justify-center shadow-2xl" style={{boxShadow:'0 0 60px rgba(196,151,59,0.15), 0 0 120px rgba(196,151,59,0.05)'}}>
+                    <img src="/uploads/upload_1.png" alt="Resolution Law Firm Logo" className="w-56 h-56 object-contain" style={{filter:'drop-shadow(0 8px 32px rgba(196,151,59,0.25))'}} />
+                  </div>
                 </div>
+                {/* Firm name under logo */}
+                <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 text-center">
+                  <h2 className="font-heading text-xl font-bold text-white tracking-wide">RESOLUTION</h2>
+                  <p className="text-white/40 text-[10px] tracking-[0.4em] uppercase font-semibold">Law Firm</p>
+                </div>
+
                 {/* Floating icons */}
                 <motion.div animate={{ y: [-8, 8, -8] }} transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }} className="absolute -top-2 right-14 w-16 h-16 rounded-2xl gold-gradient flex items-center justify-center shadow-xl shadow-gold/30">
                   <Scale size={28} className="text-white" />
