@@ -13,12 +13,14 @@ import Reviews from './pages/Reviews'
 import Contact from './pages/Contact'
 import AdminLogin from './pages/AdminLogin'
 import AdminDashboard from './pages/AdminDashboard'
+import WhatsAppButton from './components/WhatsAppButton'
+import SocialSidebar from './components/SocialSidebar'
 
 export default function App() {
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
-      <main className="flex-1">
+      <main className="flex-1 pb-14 sm:pb-0">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
@@ -35,6 +37,8 @@ export default function App() {
         </Routes>
       </main>
       <Footer />
+      <WhatsAppButton />
+      <SocialSidebar />
     </div>
   )
 }
