@@ -61,7 +61,7 @@ export default function Navbar() {
               <img
                 src="/uploads/upload_1.png"
                 alt="Resolution Law Firm"
-                className="h-12 sm:h-20 w-auto drop-shadow-md"
+                style={{ height: '80px', width: 'auto' }}
               />
             </Link>
 
