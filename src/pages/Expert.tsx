@@ -64,8 +64,8 @@ export default function Expert() {
             >
               <div className="space-y-6 w-full max-w-sm">
               <div className="bg-white/5 backdrop-blur rounded-2xl p-6 sm:p-8 border border-white/10">
-                <div className="w-28 h-28 rounded-full mx-auto mb-4 overflow-hidden border-3 border-gold/30 shadow-xl shadow-gold/10">
-                  <img src="/uploads/umar-azeem.jpg" alt="Umar Azeem Advocate" className="w-full h-full object-cover" />
+                <div className="w-36 h-36 rounded-full mx-auto mb-4 overflow-hidden border-4 border-gold/30 shadow-xl shadow-gold/10">
+                  <img src="/uploads/umar-azeem.jpg" alt="Umar Azeem Advocate" className="w-full h-full object-cover object-top" />
                 </div>
                 <h2 className="font-heading text-xl font-bold text-white text-center">Umar Azeem</h2>
                 <p className="text-gold text-center font-semibold text-sm mb-4">Advocate & Founder</p>

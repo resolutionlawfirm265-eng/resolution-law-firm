@@ -174,8 +174,8 @@ export default function Home() {
         <div className="absolute inset-0 hero-pattern opacity-50" />
         <div className="max-w-5xl mx-auto px-4 sm:px-6 relative z-10">
           <div className="flex flex-col sm:flex-row items-center gap-6 sm:gap-10">
-            <div className="w-24 h-24 sm:w-32 sm:h-32 rounded-full gold-gradient flex items-center justify-center shrink-0 shadow-xl">
-              <span className="font-heading text-4xl sm:text-5xl font-bold text-white">UA</span>
+            <div className="w-24 h-24 sm:w-32 sm:h-32 rounded-full overflow-hidden shrink-0 shadow-xl border-3 border-gold/30">
+              <img src="/uploads/umar-azeem.jpg" alt="Umar Azeem Advocate" className="w-full h-full object-cover object-top" />
             </div>
             <div className="text-center sm:text-left flex-1">
               <h2 className="font-heading text-2xl sm:text-3xl font-bold text-white mb-1">Umar Azeem Advocate</h2>

@@ -40,8 +40,8 @@ export default function About() {
           </motion.div>
           <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
             <div className="bg-white rounded-2xl p-8 shadow-lg border border-cream-dark">
-              <div className="w-24 h-24 rounded-full gold-gradient mx-auto mb-6 flex items-center justify-center">
-                <span className="font-heading text-4xl font-bold text-white">UA</span>
+              <div className="w-28 h-28 rounded-full mx-auto mb-6 overflow-hidden border-4 border-gold/30 shadow-lg">
+                <img src="/uploads/umar-azeem.jpg" alt="Umar Azeem Advocate" className="w-full h-full object-cover object-top" />
               </div>
               <h3 className="font-heading text-2xl font-bold text-navy text-center mb-1">Umar Azeem</h3>
               <p className="text-gold text-center font-semibold mb-4">Advocate & Founder</p>

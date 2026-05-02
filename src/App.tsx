@@ -9,8 +9,8 @@ import BlogPost from './pages/BlogPost'
 import CaseLaws from './pages/CaseLaws'
 import CaseLawDetail from './pages/CaseLawDetail'
 import Expert from './pages/Expert'
-import NewsEvents from './pages/NewsEvents'
 import Reviews from './pages/Reviews'
+import NewsEvents from './pages/NewsEvents'
 import Contact from './pages/Contact'
 import AdminLogin from './pages/AdminLogin'
 import AdminDashboard from './pages/AdminDashboard'
@@ -21,7 +21,7 @@ export default function App() {
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
-      <main className="flex-1 pb-14 sm:pb-0">
+      <main className="flex-1">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
@@ -31,8 +31,8 @@ export default function App() {
           <Route path="/blog/:slug" element={<BlogPost />} />
           <Route path="/case-laws" element={<CaseLaws />} />
           <Route path="/case-law/:slug" element={<CaseLawDetail />} />
-          <Route path="/news-events" element={<NewsEvents />} />
           <Route path="/reviews" element={<Reviews />} />
+          <Route path="/news-events" element={<NewsEvents />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/admin" element={<AdminLogin />} />
           <Route path="/admin/dashboard" element={<AdminDashboard />} />

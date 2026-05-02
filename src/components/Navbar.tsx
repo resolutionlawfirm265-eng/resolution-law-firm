@@ -10,6 +10,7 @@ const navLinks = [
   { name: 'Expert', path: '/expert' },
   { name: 'Case Laws', path: '/case-laws' },
   { name: 'Reviews', path: '/reviews' },
+  { name: 'News & Events', path: '/news-events' },
   { name: 'Blogs', path: '/blogs' },
   { name: 'Contact', path: '/contact' },
 ]
