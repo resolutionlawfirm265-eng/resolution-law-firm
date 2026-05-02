@@ -35,15 +35,15 @@ export default function Expert() {
                 <span className="text-gold font-semibold text-sm tracking-widest uppercase">Meet Our Expert</span>
               </div>
               <h1 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-4">
-                Umar Azeem
+                Usman Azeem
                 <span className="text-gold-gradient block">Advocate</span>
               </h1>
               <p className="text-white/60 text-base sm:text-lg leading-relaxed mb-6">
-                Founder of Resolution Law Firm, Umar Azeem Advocate is a distinguished legal professional with extensive experience in Pakistani courts. His commitment to justice and client satisfaction has made Resolution Law Firm a trusted name in Lahore's legal community.
+                Usman Azeem Advocate is a distinguished legal professional at Resolution Law Firm with extensive experience in Pakistani courts. His commitment to justice and client satisfaction has earned him a reputation as one of Lahore's most trusted advocates.
               </p>
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
                 <a
-                  href="tel:03237239957"
+                  href="tel:03204887229"
                   className="gold-gradient text-white px-6 sm:px-8 py-3.5 sm:py-4 rounded-lg font-bold text-sm sm:text-base hover:shadow-xl hover:shadow-gold/20 transition-all flex items-center justify-center gap-2"
                 >
                   <Phone size={18} /> Book Consultation
@@ -62,13 +62,12 @@ export default function Expert() {
               transition={{ delay: 0.2 }}
               className="flex justify-center"
             >
-              <div className="bg-white/5 backdrop-blur rounded-2xl p-6 sm:p-8 border border-white/10 max-w-sm w-full">
-                {/* Degree/Graduation Photo */}
-                <div className="w-40 h-40 sm:w-48 sm:h-48 rounded-full mx-auto mb-5 overflow-hidden border-4 border-gold/30 shadow-xl shadow-gold/10">
-                  <img src="/uploads/expert-umar-2.jpg" alt="Umar Azeem Advocate - Graduation" className="w-full h-full object-cover object-top" />
+              <div className="bg-white/5 backdrop-blur rounded-2xl p-6 sm:p-10 border border-white/10 max-w-sm w-full">
+                <div className="w-32 h-32 rounded-full gold-gradient mx-auto mb-6 flex items-center justify-center shadow-xl">
+                  <span className="font-heading text-5xl font-bold text-white">UA</span>
                 </div>
-                <h2 className="font-heading text-2xl font-bold text-white text-center">Umar Azeem</h2>
-                <p className="text-gold text-center font-semibold mb-5">Advocate & Founder</p>
+                <h2 className="font-heading text-2xl font-bold text-white text-center">Usman Azeem</h2>
+                <p className="text-gold text-center font-semibold mb-5">Advocate</p>
                 <div className="space-y-3">
                   <div className="flex items-center gap-3 text-white/60 text-sm">
                     <MapPin size={16} className="text-gold shrink-0" />
@@ -76,7 +75,7 @@ export default function Expert() {
                   </div>
                   <div className="flex items-center gap-3 text-white/60 text-sm">
                     <Phone size={16} className="text-gold shrink-0" />
-                    <span>0323-7239957</span>
+                    <span>0320-4887229</span>
                   </div>
                   <div className="flex items-center gap-3 text-white/60 text-sm">
                     <Mail size={16} className="text-gold shrink-0" />
@@ -89,70 +88,31 @@ export default function Expert() {
         </div>
       </section>
 
-      {/* Formal Photo Section */}
-      <section className="py-16 sm:py-24 max-w-7xl mx-auto px-4 sm:px-6">
-        <div className="grid lg:grid-cols-2 gap-10 items-center">
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-          >
-            <div className="rounded-2xl overflow-hidden border-4 border-cream-dark shadow-xl max-w-md mx-auto">
-              <img src="/uploads/expert-umar-1.jpg" alt="Umar Azeem Advocate - Formal" className="w-full h-auto object-cover" />
-            </div>
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-          >
-            <SectionTitle title="Professional Profile" center={false} />
-            <p className="text-slate leading-relaxed mb-4">
-              Umar Azeem Advocate is a distinguished legal professional with extensive experience in Pakistani courts. He specializes in civil litigation, criminal defense, tax law, corporate matters, and family law.
-            </p>
-            <p className="text-slate leading-relaxed mb-4">
-              His dedication to justice and client satisfaction has earned him a reputation as one of Lahore's most trusted advocates. He has successfully represented clients in the Lahore High Court, District Courts, Family Courts, and various tribunals.
-            </p>
-            <p className="text-slate leading-relaxed mb-6">
-              With offices at Fane Road, DHA EME Sector, and Islampura, Umar Azeem ensures that expert legal counsel is accessible to clients across Lahore.
-            </p>
-            <a
-              href="tel:03237239957"
-              className="inline-flex items-center gap-2 gold-gradient text-white px-6 py-3 rounded-lg font-bold hover:shadow-lg hover:shadow-gold/20 transition-all"
-            >
-              <Phone size={18} /> Call 0323-7239957
-            </a>
-          </motion.div>
-        </div>
-      </section>
-
       {/* Areas of Expertise */}
-      <section className="py-16 sm:py-28 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <SectionTitle title="Areas of Expertise" subtitle="Comprehensive legal knowledge across all major practice areas" />
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {expertise.map((item, i) => (
-              <motion.div
-                key={item.area}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="bg-cream/50 rounded-xl p-6 sm:p-8 shadow-sm border border-cream-dark hover:border-gold/30 hover:shadow-lg transition-all group"
-              >
-                <div className="w-14 h-14 rounded-xl gold-gradient flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
-                  <item.icon size={26} className="text-white" />
-                </div>
-                <h3 className="font-heading text-xl font-bold text-navy mb-2">{item.area}</h3>
-                <p className="text-slate text-sm leading-relaxed">{item.desc}</p>
-              </motion.div>
-            ))}
-          </div>
+      <section className="py-16 sm:py-28 max-w-7xl mx-auto px-4 sm:px-6">
+        <SectionTitle title="Areas of Expertise" subtitle="Comprehensive legal knowledge across all major practice areas" />
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {expertise.map((item, i) => (
+            <motion.div
+              key={item.area}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1 }}
+              className="bg-white rounded-xl p-6 sm:p-8 shadow-sm border border-cream-dark hover:border-gold/30 hover:shadow-lg transition-all group"
+            >
+              <div className="w-14 h-14 rounded-xl gold-gradient flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
+                <item.icon size={26} className="text-white" />
+              </div>
+              <h3 className="font-heading text-xl font-bold text-navy mb-2">{item.area}</h3>
+              <p className="text-slate text-sm leading-relaxed">{item.desc}</p>
+            </motion.div>
+          ))}
         </div>
       </section>
 
       {/* Achievements */}
-      <section className="py-16 sm:py-28">
+      <section className="py-16 sm:py-28 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6">
           <SectionTitle title="Key Achievements" subtitle="A track record of excellence and dedication" />
           <div className="space-y-3 sm:space-y-4">
@@ -163,7 +123,7 @@ export default function Expert() {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.08 }}
-                className="flex items-start gap-3 sm:gap-4 bg-white rounded-xl p-4 sm:p-5 border border-cream-dark"
+                className="flex items-start gap-3 sm:gap-4 bg-cream/50 rounded-xl p-4 sm:p-5 border border-cream-dark"
               >
                 <CheckCircle size={20} className="text-gold shrink-0 mt-0.5" />
                 <p className="text-charcoal font-medium text-sm sm:text-base">{item}</p>
@@ -174,33 +134,31 @@ export default function Expert() {
       </section>
 
       {/* Courts We Practice In */}
-      <section className="py-16 sm:py-28 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <SectionTitle title="Courts We Practice In" subtitle="Representing clients across all levels of the judiciary" />
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
-            {[
-              'Supreme Court of Pakistan',
-              'Lahore High Court',
-              'District & Sessions Courts',
-              'Civil Courts',
-              'Family Courts',
-              'Banking Courts',
-              'Revenue Courts',
-              'Appellate Tribunals',
-            ].map((court, i) => (
-              <motion.div
-                key={court}
-                initial={{ opacity: 0, y: 15 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.05 }}
-                className="bg-navy text-center rounded-xl p-4 sm:p-5 border border-navy-light hover:border-gold/30 transition-all"
-              >
-                <Scale size={22} className="text-gold mx-auto mb-2" />
-                <p className="text-white text-xs sm:text-sm font-semibold">{court}</p>
-              </motion.div>
-            ))}
-          </div>
+      <section className="py-16 sm:py-28 max-w-7xl mx-auto px-4 sm:px-6">
+        <SectionTitle title="Courts We Practice In" subtitle="Representing clients across all levels of the judiciary" />
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
+          {[
+            'Supreme Court of Pakistan',
+            'Lahore High Court',
+            'District & Sessions Courts',
+            'Civil Courts',
+            'Family Courts',
+            'Banking Courts',
+            'Revenue Courts',
+            'Appellate Tribunals',
+          ].map((court, i) => (
+            <motion.div
+              key={court}
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.05 }}
+              className="bg-navy text-center rounded-xl p-4 sm:p-5 border border-navy-light hover:border-gold/30 transition-all"
+            >
+              <Scale size={22} className="text-gold mx-auto mb-2" />
+              <p className="text-white text-xs sm:text-sm font-semibold">{court}</p>
+            </motion.div>
+          ))}
         </div>
       </section>
 
@@ -208,12 +166,12 @@ export default function Expert() {
       <section className="py-12 sm:py-16 gold-gradient">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
           <h2 className="font-heading text-2xl sm:text-4xl font-bold text-white mb-4">Ready to Discuss Your Case?</h2>
-          <p className="text-white/80 mb-6 sm:mb-8 text-sm sm:text-base">Schedule a free consultation with Umar Azeem Advocate today.</p>
+          <p className="text-white/80 mb-6 sm:mb-8 text-sm sm:text-base">Schedule a free consultation with our expert advocate today.</p>
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
-            <a href="tel:03237239957" className="inline-flex items-center justify-center gap-2 bg-white text-navy px-6 sm:px-8 py-3.5 sm:py-4 rounded-lg font-bold hover:bg-cream transition-colors text-sm sm:text-base">
-              <Phone size={18} /> Call 0323-7239957
+            <a href="tel:03204887229" className="inline-flex items-center justify-center gap-2 bg-white text-navy px-6 sm:px-8 py-3.5 sm:py-4 rounded-lg font-bold hover:bg-cream transition-colors text-sm sm:text-base">
+              <Phone size={18} /> Call 0320-4887229
             </a>
-            <a href="https://wa.me/923237239957" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 bg-navy text-white px-6 sm:px-8 py-3.5 sm:py-4 rounded-lg font-bold hover:bg-navy-dark transition-colors text-sm sm:text-base">
+            <a href="https://wa.me/923204887229" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 bg-navy text-white px-6 sm:px-8 py-3.5 sm:py-4 rounded-lg font-bold hover:bg-navy-dark transition-colors text-sm sm:text-base">
               WhatsApp Us
             </a>
           </div>

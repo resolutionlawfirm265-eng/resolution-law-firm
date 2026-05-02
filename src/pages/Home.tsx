@@ -117,11 +117,7 @@ export default function Home() {
                     <img src="/uploads/upload_1.png" alt="Resolution Law Firm Logo" className="w-56 h-56 object-contain" style={{filter:'drop-shadow(0 8px 32px rgba(196,151,59,0.25))'}} />
                   </div>
                 </div>
-                {/* Firm name under logo */}
-                <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 text-center">
-                  <h2 className="font-heading text-xl font-bold text-white tracking-wide">RESOLUTION</h2>
-                  <p className="text-white text-[10px] tracking-[0.4em] uppercase font-semibold">Law Firm</p>
-                </div>
+
 
                 {/* Floating icons */}
                 <motion.div animate={{ y: [-8, 8, -8] }} transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }} className="absolute -top-2 right-14 w-16 h-16 rounded-2xl gold-gradient flex items-center justify-center shadow-xl shadow-gold/30">
