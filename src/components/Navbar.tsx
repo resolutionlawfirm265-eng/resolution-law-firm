@@ -39,8 +39,8 @@ export default function Navbar() {
             <a href="mailto:resolutionlawfirm265@gmail.com" className="flex items-center gap-2 hover:text-gold transition-colors">
               <Mail size={14} /> resolutionlawfirm265@gmail.com
             </a>
-            <a href="tel:03204887229" className="flex items-center gap-2 hover:text-gold transition-colors">
-              <Phone size={14} /> 0320-4887229
+            <a href="tel:03237239957" className="flex items-center gap-2 hover:text-gold transition-colors">
+              <Phone size={14} /> 0323-7239957
             </a>
           </div>
           <div className="flex items-center gap-2">
@@ -55,13 +55,13 @@ export default function Navbar() {
         scrolled ? 'bg-white/95 backdrop-blur-md shadow-lg shadow-navy/5' : 'bg-white shadow-sm'
       }`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="flex justify-between items-center h-18 sm:h-24">
+          <div className="flex justify-between items-center h-16 sm:h-24">
             {/* Logo */}
             <Link to="/" className="flex items-center gap-3 group">
               <img
-                src="/uploads/logo_new.png"
+                src="/uploads/upload_1.png"
                 alt="Resolution Law Firm"
-                className="h-16 sm:h-[96px] w-auto drop-shadow-sm"
+                className="h-12 sm:h-20 w-auto drop-shadow-md"
               />
             </Link>
 
@@ -81,7 +81,7 @@ export default function Navbar() {
                 </Link>
               ))}
               <a
-                href="tel:03204887229"
+                href="tel:03237239957"
                 className="ml-3 px-5 py-2.5 gold-gradient text-white rounded-lg text-sm font-bold tracking-wide hover:shadow-lg hover:shadow-gold/25 transition-all duration-200 flex items-center gap-2"
               >
                 <Phone size={15} />
@@ -126,7 +126,7 @@ export default function Navbar() {
                 ))}
                 <div className="pt-3 space-y-3">
                   <a
-                    href="tel:03204887229"
+                    href="tel:03237239957"
                     className="block text-center px-5 py-3 gold-gradient text-white rounded-lg font-bold tracking-wide"
                   >
                     <Phone size={15} className="inline mr-2" />
@@ -136,8 +136,8 @@ export default function Navbar() {
                     <a href="mailto:resolutionlawfirm265@gmail.com" className="flex items-center gap-2">
                       <Mail size={14} className="text-gold" /> resolutionlawfirm265@gmail.com
                     </a>
-                    <a href="tel:03204887229" className="flex items-center gap-2">
-                      <Phone size={14} className="text-gold" /> 0320-4887229
+                    <a href="tel:03237239957" className="flex items-center gap-2">
+                      <Phone size={14} className="text-gold" /> 0323-7239957
                     </a>
                   </div>
                 </div>

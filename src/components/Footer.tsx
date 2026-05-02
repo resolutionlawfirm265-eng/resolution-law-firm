@@ -15,7 +15,7 @@ export default function Footer() {
           </div>
           <div className="flex gap-3">
             <a
-              href="https://wa.me/923204887229?text=Hello%2C%20I%20need%20legal%20assistance%20from%20Resolution%20Law%20Firm"
+              href="https://wa.me/923237239957?text=Hello%2C%20I%20need%20legal%20assistance%20from%20Resolution%20Law%20Firm"
               target="_blank"
               rel="noopener noreferrer"
               className="px-6 py-3 bg-[#25D366] text-white font-bold rounded-lg hover:bg-[#1ebe5d] transition-colors flex items-center gap-2"
@@ -26,7 +26,7 @@ export default function Footer() {
               WhatsApp
             </a>
             <a
-              href="tel:03204887229"
+              href="tel:03237239957"
               className="px-6 py-3 bg-white text-navy font-bold rounded-lg hover:bg-cream transition-colors flex items-center gap-2"
             >
               <Phone size={18} /> Call Now
@@ -45,7 +45,7 @@ export default function Footer() {
             <p className="text-white/60 text-sm leading-relaxed mb-5">Resolution Law Firm provides expert legal services across Pakistan. Founded by Umar Azeem Advocate, we are committed to delivering justice and protecting your rights.</p>
             <div className="flex gap-2">
               <a href={FACEBOOK_URL} target="_blank" rel="noopener noreferrer" className="hover:scale-110 transition-transform" aria-label="Facebook"><img src="/images/3d-facebook.png" alt="Facebook" className="w-11 h-11 object-contain drop-shadow-md" /></a>
-              <a href="https://wa.me/923204887229" target="_blank" rel="noopener noreferrer" className="hover:scale-110 transition-transform" aria-label="WhatsApp"><img src="/images/3d-whatsapp.png" alt="WhatsApp" className="w-11 h-11 object-contain drop-shadow-md" /></a>
+              <a href="https://wa.me/923237239957" target="_blank" rel="noopener noreferrer" className="hover:scale-110 transition-transform" aria-label="WhatsApp"><img src="/images/3d-whatsapp.png" alt="WhatsApp" className="w-11 h-11 object-contain drop-shadow-md" /></a>
               <a href="#" className="hover:scale-110 transition-transform" aria-label="Instagram"><img src="/images/3d-instagram.png" alt="Instagram" className="w-11 h-11 object-contain drop-shadow-md" /></a>
               <a href="#" className="hover:scale-110 transition-transform" aria-label="LinkedIn"><img src="/images/3d-linkedin.png" alt="LinkedIn" className="w-11 h-11 object-contain drop-shadow-md" /></a>
             </div>
@@ -72,7 +72,7 @@ export default function Footer() {
               <li className="flex items-start gap-3"><MapPin size={18} className="text-gold mt-0.5 shrink-0" /><div className="text-white/60 text-sm"><p className="font-semibold text-white/80">Main Office</p>Alvi Manzil, 3rd Floor, 9-Fane Road, Lahore</div></li>
               <li className="flex items-start gap-3"><MapPin size={18} className="text-gold mt-0.5 shrink-0" /><div className="text-white/60 text-sm"><p className="font-semibold text-white/80">DHA Office</p>129-J DHA EME Sector, Lahore</div></li>
               <li className="flex items-start gap-3"><MapPin size={18} className="text-gold mt-0.5 shrink-0" /><div className="text-white/60 text-sm"><p className="font-semibold text-white/80">Islampura Office</p>14-Jinnah St, Chohan Road, Islampura, Lahore</div></li>
-              <li className="flex items-center gap-3"><Phone size={18} className="text-gold shrink-0" /><a href="tel:03204887229" className="text-white/60 hover:text-gold text-sm">0320-4887229</a></li>
+              <li className="flex items-center gap-3"><Phone size={18} className="text-gold shrink-0" /><a href="tel:03237239957" className="text-white/60 hover:text-gold text-sm">0323-7239957</a></li>
               <li className="flex items-center gap-3"><Mail size={18} className="text-gold shrink-0" /><a href="mailto:resolutionlawfirm265@gmail.com" className="text-white/60 hover:text-gold text-sm break-all">resolutionlawfirm265@gmail.com</a></li>
               <li className="flex items-center gap-3"><Clock size={18} className="text-gold shrink-0" /><span className="text-white/60 text-sm">Mon - Sat: 9:00 AM - 6:00 PM</span></li>
             </ul>
@@ -92,7 +92,7 @@ export default function Footer() {
             <a href={FACEBOOK_URL} target="_blank" rel="noopener noreferrer" className="hover:scale-110 transition-transform" aria-label="Facebook">
               <img src="/images/3d-facebook.png" alt="Facebook" className="w-8 h-8 object-contain drop-shadow-sm" />
             </a>
-            <a href="https://wa.me/923204887229" target="_blank" rel="noopener noreferrer" className="hover:scale-110 transition-transform" aria-label="WhatsApp">
+            <a href="https://wa.me/923237239957" target="_blank" rel="noopener noreferrer" className="hover:scale-110 transition-transform" aria-label="WhatsApp">
               <img src="/images/3d-whatsapp.png" alt="WhatsApp" className="w-8 h-8 object-contain drop-shadow-sm" />
             </a>
             <a href="#" className="hover:scale-110 transition-transform" aria-label="Instagram">

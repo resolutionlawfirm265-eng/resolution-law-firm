@@ -1,9 +1,9 @@
 import { motion } from 'framer-motion'
 
 const FACEBOOK_URL = 'https://www.facebook.com/people/Resolution-Lawyers-Group/61582292877345/'
-const WHATSAPP_URL = 'https://wa.me/923204887229?text=Hello%2C%20I%20need%20legal%20assistance%20from%20Resolution%20Law%20Firm'
+const WHATSAPP_URL = 'https://wa.me/923237239957?text=Hello%2C%20I%20need%20legal%20assistance%20from%20Resolution%20Law%20Firm'
 const EMAIL_URL = 'mailto:resolutionlawfirm265@gmail.com'
-const PHONE_URL = 'tel:03204887229'
+const PHONE_URL = 'tel:03237239957'
 
 const socials = [
   {

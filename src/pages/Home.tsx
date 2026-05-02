@@ -79,7 +79,7 @@ export default function Home() {
                 Led by Umar Azeem Advocate — expert legal services in Civil, Criminal, Tax, Corporate & Family law across Lahore.
               </p>
               <div className="flex flex-col sm:flex-row gap-3">
-                <a href="tel:03204887229" className="gold-gradient text-white px-6 sm:px-8 py-3.5 rounded-lg font-bold text-sm sm:text-base hover:shadow-xl hover:shadow-gold/20 transition-all flex items-center justify-center gap-2">
+                <a href="tel:03237239957" className="gold-gradient text-white px-6 sm:px-8 py-3.5 rounded-lg font-bold text-sm sm:text-base hover:shadow-xl hover:shadow-gold/20 transition-all flex items-center justify-center gap-2">
                   <Phone size={18} /> Free Consultation
                 </a>
                 <Link to="/services" className="border-2 border-white/20 text-white px-6 sm:px-8 py-3.5 rounded-lg font-bold text-sm sm:text-base hover:border-gold hover:text-gold transition-all flex items-center justify-center gap-2">
@@ -175,7 +175,7 @@ export default function Home() {
         <div className="max-w-5xl mx-auto px-4 sm:px-6 relative z-10">
           <div className="flex flex-col sm:flex-row items-center gap-6 sm:gap-10">
             <div className="w-24 h-24 sm:w-32 sm:h-32 rounded-full overflow-hidden shrink-0 shadow-xl border-3 border-gold/30">
-              <img src="/uploads/umar-azeem.jpg" alt="Umar Azeem Advocate" className="w-full h-full object-cover object-top" />
+              <img src="/uploads/expert-umar-1.jpg" alt="Umar Azeem Advocate" className="w-full h-full object-cover object-top" />
             </div>
             <div className="text-center sm:text-left flex-1">
               <h2 className="font-heading text-2xl sm:text-3xl font-bold text-white mb-1">Umar Azeem Advocate</h2>
@@ -369,7 +369,7 @@ export default function Home() {
                 { icon: MapPin, l: 'Main Office', v: 'Alvi Manzil, 3rd Floor, 9-Fane Road, Lahore' },
                 { icon: MapPin, l: 'DHA Office', v: '129-J DHA EME Sector, Lahore' },
                 { icon: MapPin, l: 'Islampura', v: '14-Jinnah St, Chohan Road, Islampura, Lahore' },
-                { icon: Phone, l: 'Phone', v: '0320-4887229' },
+                { icon: Phone, l: 'Phone', v: '0323-7239957' },
               ].map((item, i) => (
                 <div key={i} className="flex items-start gap-3">
                   <div className="w-10 h-10 rounded-lg gold-gradient flex items-center justify-center shrink-0">

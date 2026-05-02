@@ -5,7 +5,7 @@ export default function WhatsAppButton() {
     <>
       {/* Desktop — floating button bottom-left */}
       <motion.a
-        href="https://wa.me/923204887229?text=Hello%2C%20I%20need%20legal%20assistance%20from%20Resolution%20Law%20Firm"
+        href="https://wa.me/923237239957?text=Hello%2C%20I%20need%20legal%20assistance%20from%20Resolution%20Law%20Firm"
         target="_blank"
         rel="noopener noreferrer"
         className="hidden sm:flex fixed bottom-6 left-6 z-50 items-center gap-2 bg-[#25D366] hover:bg-[#1ebe5d] rounded-full shadow-lg shadow-green-600/30 hover:shadow-xl hover:shadow-green-600/40 transition-all pl-1 pr-5"
@@ -34,7 +34,7 @@ export default function WhatsAppButton() {
         <div className="grid grid-cols-4 divide-x divide-gray-100">
           {/* Call */}
           <a
-            href="tel:03204887229"
+            href="tel:03237239957"
             className="flex flex-col items-center justify-center py-2.5 gap-0.5 active:bg-cream transition-colors"
           >
             <svg viewBox="0 0 512 512" className="w-5 h-5 fill-gold">
@@ -45,7 +45,7 @@ export default function WhatsAppButton() {
 
           {/* WhatsApp */}
           <a
-            href="https://wa.me/923204887229?text=Hello%2C%20I%20need%20legal%20assistance%20from%20Resolution%20Law%20Firm"
+            href="https://wa.me/923237239957?text=Hello%2C%20I%20need%20legal%20assistance%20from%20Resolution%20Law%20Firm"
             target="_blank"
             rel="noopener noreferrer"
             className="flex flex-col items-center justify-center py-2.5 gap-0.5 active:bg-green-50 transition-colors"
