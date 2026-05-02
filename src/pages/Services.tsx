@@ -90,8 +90,8 @@ export default function Services() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
           <h2 className="font-heading text-3xl sm:text-4xl font-bold text-white mb-4">Need Legal Help?</h2>
           <p className="text-white/60 mb-8">Contact us today for a free consultation with our expert legal team.</p>
-          <a href="tel:03168078693" className="inline-flex items-center gap-2 gold-gradient text-white px-8 py-4 rounded-lg font-bold hover:shadow-xl hover:shadow-gold/20 transition-all">
-            <Phone size={20} /> Call 0316-8078693
+          <a href="tel:03204887229" className="inline-flex items-center gap-2 gold-gradient text-white px-8 py-4 rounded-lg font-bold hover:shadow-xl hover:shadow-gold/20 transition-all">
+            <Phone size={20} /> Call 0320-4887229
           </a>
         </div>
       </section>

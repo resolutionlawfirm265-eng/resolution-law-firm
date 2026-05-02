@@ -97,7 +97,7 @@ export default function Expert() {
                   </div>
                   <div className="flex items-center gap-3 text-white/60 text-sm">
                     <Phone size={14} className="text-gold shrink-0" />
-                    <span>0316-8078693</span>
+                    <span>0320-4887229</span>
                   </div>
                 </div>
               </div>
@@ -190,7 +190,7 @@ export default function Expert() {
             <a href="tel:03204887229" className="inline-flex items-center justify-center gap-2 bg-white text-navy px-8 py-4 rounded-lg font-bold hover:bg-cream transition-colors">
               <Phone size={20} /> Call 0320-4887229
             </a>
-            <a href="https://wa.me/923168078693" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 bg-navy text-white px-8 py-4 rounded-lg font-bold hover:bg-navy-dark transition-colors">
+            <a href="https://wa.me/923204887229" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 bg-navy text-white px-8 py-4 rounded-lg font-bold hover:bg-navy-dark transition-colors">
               WhatsApp Us
             </a>
           </div>

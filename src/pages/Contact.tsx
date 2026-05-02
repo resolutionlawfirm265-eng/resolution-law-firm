@@ -41,7 +41,7 @@ export default function Contact() {
               { icon: MapPin, title: 'Main Office', lines: ['Alvi Manzil, 3rd Floor', '9-Fane Road, Lahore'] },
               { icon: MapPin, title: 'DHA Office', lines: ['129-J DHA EME Sector', 'Lahore'] },
               { icon: MapPin, title: 'Islampura Office', lines: ['14-Jinnah St, Chohan Road', 'Islampura, Lahore'] },
-              { icon: Phone, title: 'Phone', lines: ['0316-8078693'] },
+              { icon: Phone, title: 'Phone', lines: ['0320-4887229'] },
               { icon: Mail, title: 'Email', lines: ['resolutionlawfirm265@gmail.com'] },
               { icon: Clock, title: 'Working Hours', lines: ['Monday - Saturday', '9:00 AM - 6:00 PM'] },
             ].map((item, i) => (
