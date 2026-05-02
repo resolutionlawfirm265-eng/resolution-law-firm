@@ -114,7 +114,7 @@ export default function Home() {
                 {/* Center logo — bigger & prominent */}
                 <div className="relative z-10 flex items-center justify-center">
                   <div className="w-72 h-72 rounded-full bg-navy-light/40 backdrop-blur-sm border-2 border-gold/20 flex items-center justify-center shadow-2xl" style={{boxShadow:'0 0 60px rgba(196,151,59,0.15), 0 0 120px rgba(196,151,59,0.05)'}}>
-                    <img src="/uploads/upload_1.png" alt="Resolution Law Firm Logo" className="w-56 h-56 object-contain" style={{filter:'drop-shadow(0 8px 32px rgba(196,151,59,0.25))'}} />
+                    <img src="/uploads/upload_1.png" alt="Resolution Law Firm Logo" className="w-56 h-56 object-contain brightness-0 invert" style={{filter:'brightness(0) invert(1) drop-shadow(0 8px 32px rgba(196,151,59,0.25))'}} />
                   </div>
                 </div>
 
@@ -171,7 +171,7 @@ export default function Home() {
         <div className="max-w-5xl mx-auto px-4 sm:px-6 relative z-10">
           <div className="flex flex-col sm:flex-row items-center gap-6 sm:gap-10">
             <div className="w-24 h-24 sm:w-32 sm:h-32 rounded-full overflow-hidden shrink-0 shadow-xl border-3 border-gold/30">
-              <img src="/uploads/expert-umar-1.jpg" alt="Umar Azeem Advocate" className="w-full h-full object-cover object-top" />
+              <img src="/uploads/umar-azeem.jpg" alt="Umar Azeem Advocate" className="w-full h-full object-cover object-top" />
             </div>
             <div className="text-center sm:text-left flex-1">
               <h2 className="font-heading text-2xl sm:text-3xl font-bold text-white mb-1">Umar Azeem Advocate</h2>
