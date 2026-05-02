@@ -12,6 +12,7 @@ const navLinks = [
   { name: 'Reviews', path: '/reviews' },
   { name: 'News & Events', path: '/news-events' },
   { name: 'Blogs', path: '/blogs' },
+  { name: 'News & Events', path: '/news-events' },
   { name: 'Contact', path: '/contact' },
 ]
 

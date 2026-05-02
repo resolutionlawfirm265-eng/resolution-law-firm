@@ -1,14 +1,15 @@
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { FileText, MessageSquare, Star, LogOut, Plus, Trash2, Eye, EyeOff, Check, X, Edit2, ChevronDown, Mail, Phone, Clock, RefreshCw, BookOpen } from 'lucide-react'
+import { FileText, MessageSquare, Star, LogOut, Plus, Trash2, Eye, EyeOff, Check, X, Edit2, ChevronDown, Mail, Phone, Clock, RefreshCw, BookOpen, Newspaper } from 'lucide-react'
 
 interface Blog { id: number; title: string; slug: string; excerpt: string; content: string; category: string; image_url: string; published: boolean; created_at: string; }
 interface Message { id: number; name: string; email: string; phone: string; subject: string; message: string; read: boolean; created_at: string; }
 interface Review { id: number; name: string; rating: number; comment: string; approved: boolean; created_at: string; }
 interface CaseLaw { id: number; title: string; slug: string; excerpt: string; content: string; category: string; court: string; year: string; citation: string; published: boolean; created_at: string; }
+interface NewsEvent { id: number; title: string; slug: string; excerpt: string; content: string; type: string; image_url: string; event_date: string; location: string; published: boolean; created_at: string; }
 
-type Tab = 'blogs' | 'messages' | 'reviews' | 'caselaws'
+type Tab = 'blogs' | 'messages' | 'reviews' | 'caselaws' | 'newsevents'
 
 export default function AdminDashboard() {
   const navigate = useNavigate()
@@ -17,11 +18,15 @@ export default function AdminDashboard() {
   const [messages, setMessages] = useState<Message[]>([])
   const [reviews, setReviews] = useState<Review[]>([])
   const [caseLaws, setCaseLaws] = useState<CaseLaw[]>([])
+  const [newsEvents, setNewsEvents] = useState<NewsEvent[]>([])
   const [loading, setLoading] = useState(true)
   const [showBlogForm, setShowBlogForm] = useState(false)
   const [editingBlog, setEditingBlog] = useState<Blog | null>(null)
   const [blogForm, setBlogForm] = useState({ title: '', slug: '', excerpt: '', content: '', category: 'Civil Law', image_url: '', published: false })
   const [showCaseLawForm, setShowCaseLawForm] = useState(false)
+  const [showNewsForm, setShowNewsForm] = useState(false)
+  const [editingNews, setEditingNews] = useState<NewsEvent | null>(null)
+  const [newsForm, setNewsForm] = useState({ title: '', slug: '', excerpt: '', content: '', type: 'news', image_url: '', event_date: '', location: '', published: false })
   const [editingCaseLaw, setEditingCaseLaw] = useState<CaseLaw | null>(null)
   const [caseLawForm, setCaseLawForm] = useState({ title: '', slug: '', excerpt: '', content: '', category: 'Civil Law', court: 'Lahore High Court', year: '2024', citation: '', published: false })
 
@@ -34,16 +39,18 @@ export default function AdminDashboard() {
   const fetchAll = async () => {
     setLoading(true)
     try {
-      const [b, m, r, cl] = await Promise.all([
+      const [b, m, r, cl, ne] = await Promise.all([
         fetch('/api/blogs').then(r => r.json()),
         fetch('/api/messages').then(r => r.json()),
         fetch('/api/reviews').then(r => r.json()),
         fetch('/api/caselaws').then(r => r.json()),
+        fetch('/api/news-events').then(r => r.json()),
       ])
       setBlogs(Array.isArray(b) ? b : [])
       setMessages(Array.isArray(m) ? m : [])
       setReviews(Array.isArray(r) ? r : [])
       setCaseLaws(Array.isArray(cl) ? cl : [])
+      setNewsEvents(Array.isArray(ne) ? ne : [])
     } catch (err) { console.error(err) }
     setLoading(false)
   }
@@ -158,10 +165,41 @@ export default function AdminDashboard() {
     fetchAll()
   }
 
+  const saveNews = async (e: React.FormEvent) => {
+    e.preventDefault()
+    const slug = newsForm.slug || generateSlug(newsForm.title)
+    if (editingNews) {
+      await fetch('/api/news-events', { method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ ...newsForm, slug, id: editingNews.id }) })
+    } else {
+      await fetch('/api/news-events', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ ...newsForm, slug }) })
+    }
+    setShowNewsForm(false); setEditingNews(null)
+    setNewsForm({ title: '', slug: '', excerpt: '', content: '', type: 'news', image_url: '', event_date: '', location: '', published: false })
+    fetchAll()
+  }
+
+  const deleteNews = async (id: number) => {
+    if (!confirm('Delete this item?')) return
+    await fetch('/api/news-events', { method: 'DELETE', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ id }) })
+    fetchAll()
+  }
+
+  const editNews = (ne: NewsEvent) => {
+    setEditingNews(ne)
+    setNewsForm({ title: ne.title, slug: ne.slug, excerpt: ne.excerpt, content: ne.content, type: ne.type, image_url: ne.image_url, event_date: ne.event_date, location: ne.location, published: ne.published })
+    setShowNewsForm(true)
+  }
+
+  const toggleNewsPublish = async (ne: NewsEvent) => {
+    await fetch('/api/news-events', { method: 'PUT', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ ...ne, published: !ne.published }) })
+    fetchAll()
+  }
+
   const tabs: { key: Tab; label: string; icon: any; badge?: number }[] = [
     { key: 'messages', label: 'Messages', icon: MessageSquare, badge: unreadCount },
     { key: 'blogs', label: 'Blogs', icon: FileText },
     { key: 'caselaws', label: 'Case Laws', icon: BookOpen },
+    { key: 'newsevents', label: 'News', icon: Newspaper },
     { key: 'reviews', label: 'Reviews', icon: Star, badge: pendingReviews },
   ]
 
@@ -426,6 +464,64 @@ export default function AdminDashboard() {
                         <button onClick={() => toggleCaseLawPublish(cl)} className={`p-2 rounded-lg transition-colors ${cl.published ? 'text-green-500 hover:bg-green-50' : 'text-amber-500 hover:bg-amber-50'}`}>{cl.published ? <Eye size={16} /> : <EyeOff size={16} />}</button>
                         <button onClick={() => editCaseLaw(cl)} className="p-2 rounded-lg text-slate/40 hover:text-navy hover:bg-cream transition-colors"><Edit2 size={16} /></button>
                         <button onClick={() => deleteCaseLaw(cl.id)} className="p-2 rounded-lg text-slate/40 hover:text-red-500 hover:bg-red-50 transition-colors"><Trash2 size={16} /></button>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {/* News & Events Tab */}
+            {activeTab === 'newsevents' && (
+              <div>
+                <div className="flex items-center justify-between mb-4">
+                  <h2 className="font-heading text-lg font-bold text-navy">News & Events</h2>
+                  <button onClick={() => { setShowNewsForm(true); setEditingNews(null); setNewsForm({ title: '', slug: '', excerpt: '', content: '', type: 'news', image_url: '', event_date: '', location: '', published: false }) }} className="flex items-center gap-2 px-4 py-2 gold-gradient text-white rounded-lg text-sm font-bold hover:shadow-lg transition-all">
+                    <Plus size={16} /> Add New
+                  </button>
+                </div>
+                {showNewsForm && (
+                  <motion.div initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }} className="bg-white rounded-xl p-6 border border-cream-dark mb-6">
+                    <h3 className="font-heading text-lg font-bold text-navy mb-4">{editingNews ? 'Edit' : 'New'} News/Event</h3>
+                    <form onSubmit={saveNews} className="space-y-4">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div><label className="text-sm font-semibold text-navy mb-1 block">Title *</label><input type="text" required value={newsForm.title} onChange={e => setNewsForm(p => ({...p, title: e.target.value, slug: generateSlug(e.target.value)}))} className="w-full px-4 py-2.5 rounded-lg border border-cream-dark bg-cream/30 focus:outline-none focus:border-gold" placeholder="Title" /></div>
+                        <div><label className="text-sm font-semibold text-navy mb-1 block">Type</label><select value={newsForm.type} onChange={e => setNewsForm(p => ({...p, type: e.target.value}))} className="w-full px-4 py-2.5 rounded-lg border border-cream-dark bg-cream/30 focus:outline-none focus:border-gold"><option value="news">News</option><option value="event">Event</option></select></div>
+                      </div>
+                      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                        <div><label className="text-sm font-semibold text-navy mb-1 block">Image URL</label><input type="text" value={newsForm.image_url} onChange={e => setNewsForm(p => ({...p, image_url: e.target.value}))} className="w-full px-4 py-2.5 rounded-lg border border-cream-dark bg-cream/30 focus:outline-none focus:border-gold" placeholder="https://..." /></div>
+                        <div><label className="text-sm font-semibold text-navy mb-1 block">Date</label><input type="date" value={newsForm.event_date} onChange={e => setNewsForm(p => ({...p, event_date: e.target.value}))} className="w-full px-4 py-2.5 rounded-lg border border-cream-dark bg-cream/30 focus:outline-none focus:border-gold" /></div>
+                        <div><label className="text-sm font-semibold text-navy mb-1 block">Location</label><input type="text" value={newsForm.location} onChange={e => setNewsForm(p => ({...p, location: e.target.value}))} className="w-full px-4 py-2.5 rounded-lg border border-cream-dark bg-cream/30 focus:outline-none focus:border-gold" placeholder="Venue / Address" /></div>
+                      </div>
+                      <div><label className="text-sm font-semibold text-navy mb-1 block">Excerpt *</label><textarea required rows={2} value={newsForm.excerpt} onChange={e => setNewsForm(p => ({...p, excerpt: e.target.value}))} className="w-full px-4 py-2.5 rounded-lg border border-cream-dark bg-cream/30 focus:outline-none focus:border-gold resize-none" placeholder="Brief summary..." /></div>
+                      <div><label className="text-sm font-semibold text-navy mb-1 block">Content * (HTML)</label><textarea required rows={8} value={newsForm.content} onChange={e => setNewsForm(p => ({...p, content: e.target.value}))} className="w-full px-4 py-2.5 rounded-lg border border-cream-dark bg-cream/30 focus:outline-none focus:border-gold resize-y font-mono text-sm" placeholder="<h2>Heading</h2><p>Content...</p>" /></div>
+                      <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={newsForm.published} onChange={e => setNewsForm(p => ({...p, published: e.target.checked}))} className="w-4 h-4 rounded border-cream-dark text-gold focus:ring-gold" /><span className="text-sm font-semibold text-navy">Publish immediately</span></label>
+                      <div className="flex gap-3">
+                        <button type="submit" className="px-6 py-2.5 gold-gradient text-white rounded-lg font-bold text-sm hover:shadow-lg transition-all">{editingNews ? 'Update' : 'Create'}</button>
+                        <button type="button" onClick={() => { setShowNewsForm(false); setEditingNews(null) }} className="px-6 py-2.5 border border-cream-dark text-slate rounded-lg text-sm hover:bg-cream transition-colors">Cancel</button>
+                      </div>
+                    </form>
+                  </motion.div>
+                )}
+                <div className="space-y-3">
+                  {newsEvents.length === 0 ? (<div className="text-center py-16 text-slate">No news or events yet.</div>) : newsEvents.map(ne => (
+                    <div key={ne.id} className="bg-white rounded-xl p-5 border border-cream-dark flex items-start justify-between gap-3">
+                      <div className="flex items-start gap-3 flex-1 min-w-0">
+                        {ne.image_url && <img src={ne.image_url} alt="" className="w-16 h-16 rounded-lg object-cover shrink-0" />}
+                        <div className="flex-1 min-w-0">
+                          <div className="flex items-center gap-2 flex-wrap">
+                            <h3 className="font-semibold text-navy text-sm">{ne.title}</h3>
+                            <span className={`text-xs px-2 py-0.5 rounded-full font-semibold ${ne.published ? 'bg-green-100 text-green-700' : 'bg-amber-100 text-amber-700'}`}>{ne.published ? 'Published' : 'Draft'}</span>
+                            <span className={`text-xs px-2 py-0.5 rounded-full font-semibold ${ne.type === 'event' ? 'bg-blue-100 text-blue-700' : 'bg-navy/5 text-navy'}`}>{ne.type === 'event' ? 'Event' : 'News'}</span>
+                          </div>
+                          <p className="text-slate text-xs mt-0.5">{ne.event_date && new Date(ne.event_date).toLocaleDateString()} {ne.location && `• ${ne.location}`}</p>
+                          <p className="text-slate text-sm mt-1 line-clamp-1">{ne.excerpt}</p>
+                        </div>
+                      </div>
+                      <div className="flex items-center gap-1 shrink-0">
+                        <button onClick={() => toggleNewsPublish(ne)} className={`p-2 rounded-lg transition-colors ${ne.published ? 'text-green-500 hover:bg-green-50' : 'text-amber-500 hover:bg-amber-50'}`}>{ne.published ? <Eye size={16} /> : <EyeOff size={16} />}</button>
+                        <button onClick={() => editNews(ne)} className="p-2 rounded-lg text-slate/40 hover:text-navy hover:bg-cream transition-colors"><Edit2 size={16} /></button>
+                        <button onClick={() => deleteNews(ne.id)} className="p-2 rounded-lg text-slate/40 hover:text-red-500 hover:bg-red-50 transition-colors"><Trash2 size={16} /></button>
                       </div>
                     </div>
                   ))}
