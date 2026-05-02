@@ -55,13 +55,13 @@ export default function Navbar() {
         scrolled ? 'bg-white/95 backdrop-blur-md shadow-lg shadow-navy/5' : 'bg-white shadow-sm'
       }`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="flex justify-between items-center h-16 sm:h-24">
+          <div className="flex justify-between items-center h-[70px] sm:h-[115px]">
             {/* Logo */}
             <Link to="/" className="flex items-center gap-3 group">
               <img
                 src="/uploads/upload_1.png"
                 alt="Resolution Law Firm"
-                style={{ height: '80px', width: 'auto' }}
+                className="h-[60px] sm:h-[100px] w-auto"
               />
             </Link>
 
