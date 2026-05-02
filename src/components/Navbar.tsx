@@ -60,7 +60,7 @@ export default function Navbar() {
               <img
                 src="/uploads/logo_new.png"
                 alt="Resolution Law Firm"
-                className="h-14 sm:h-16 w-auto"
+                className="h-12 sm:h-[72px] w-auto"
               />
             </Link>
 

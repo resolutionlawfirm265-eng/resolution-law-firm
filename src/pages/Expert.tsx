@@ -43,7 +43,7 @@ export default function Expert() {
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <a
-                  href="tel:03168078693"
+                  href="tel:03204887229"
                   className="gold-gradient text-white px-8 py-4 rounded-lg font-bold text-base hover:shadow-xl hover:shadow-gold/20 transition-all flex items-center justify-center gap-2"
                 >
                   <Phone size={18} /> Book Consultation
@@ -64,8 +64,8 @@ export default function Expert() {
             >
               <div className="space-y-6 w-full max-w-sm">
               <div className="bg-white/5 backdrop-blur rounded-2xl p-6 sm:p-8 border border-white/10">
-                <div className="w-20 h-20 rounded-full gold-gradient mx-auto mb-4 flex items-center justify-center">
-                  <span className="font-heading text-3xl font-bold text-white">UA</span>
+                <div className="w-28 h-28 rounded-full mx-auto mb-4 overflow-hidden border-3 border-gold/30 shadow-xl shadow-gold/10">
+                  <img src="/uploads/umar-azeem.jpg" alt="Umar Azeem Advocate" className="w-full h-full object-cover" />
                 </div>
                 <h2 className="font-heading text-xl font-bold text-white text-center">Umar Azeem</h2>
                 <p className="text-gold text-center font-semibold text-sm mb-4">Advocate & Founder</p>
@@ -76,7 +76,7 @@ export default function Expert() {
                   </div>
                   <div className="flex items-center gap-3 text-white/60 text-sm">
                     <Phone size={16} className="text-gold shrink-0" />
-                    <span>0316-8078693</span>
+                    <span>0320-4887229</span>
                   </div>
                   <div className="flex items-center gap-3 text-white/60 text-sm">
                     <Mail size={16} className="text-gold shrink-0" />
@@ -187,8 +187,8 @@ export default function Expert() {
           <h2 className="font-heading text-3xl sm:text-4xl font-bold text-white mb-4">Ready to Discuss Your Case?</h2>
           <p className="text-white/80 mb-8">Schedule a free consultation with Umar Azeem Advocate today.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="tel:03168078693" className="inline-flex items-center justify-center gap-2 bg-white text-navy px-8 py-4 rounded-lg font-bold hover:bg-cream transition-colors">
-              <Phone size={20} /> Call 0316-8078693
+            <a href="tel:03204887229" className="inline-flex items-center justify-center gap-2 bg-white text-navy px-8 py-4 rounded-lg font-bold hover:bg-cream transition-colors">
+              <Phone size={20} /> Call 0320-4887229
             </a>
             <a href="https://wa.me/923168078693" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 bg-navy text-white px-8 py-4 rounded-lg font-bold hover:bg-navy-dark transition-colors">
               WhatsApp Us

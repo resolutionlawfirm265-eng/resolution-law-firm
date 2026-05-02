@@ -72,9 +72,8 @@ export default function Home() {
                 <div className="h-px w-8 sm:w-10 bg-gold" />
                 <span className="text-gold font-semibold text-xs sm:text-sm tracking-widest uppercase">Resolution Law Firm</span>
               </div>
-              <h1 className="font-heading text-4xl sm:text-6xl lg:text-7xl font-bold leading-tight mb-4 sm:mb-6">
-                <span className="text-white">Resolution</span>
-                <span className="text-gold-gradient block">Law Firm</span>
+              <h1 className="font-heading text-3xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-4 sm:mb-6">
+                <span className="text-gold-gradient">Resolution Law Firm</span>
               </h1>
               <p className="text-white/60 text-base sm:text-xl leading-relaxed mb-6 sm:mb-8 max-w-xl">
                 Led by Umar Azeem Advocate — expert legal services in Civil, Criminal, Tax, Corporate & Family law across Lahore.
