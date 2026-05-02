@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { FileText, MessageSquare, Star, LogOut, Plus, Trash2, Eye, EyeOff, Check, X, Edit2, ChevronDown, Mail, Phone, Clock, RefreshCw, BookOpen, Newspaper } from 'lucide-react'
+import ImageUpload from '../components/ImageUpload'
 
 interface Blog { id: number; title: string; slug: string; excerpt: string; content: string; category: string; image_url: string; published: boolean; created_at: string; }
 interface Message { id: number; name: string; email: string; phone: string; subject: string; message: string; read: boolean; created_at: string; }
@@ -354,8 +355,7 @@ export default function AdminDashboard() {
                           </select>
                         </div>
                         <div>
-                          <label className="text-sm font-semibold text-navy mb-1 block">Image URL</label>
-                          <input type="text" value={blogForm.image_url} onChange={e => setBlogForm(p => ({...p, image_url: e.target.value}))} className="w-full px-4 py-2.5 rounded-lg border border-cream-dark bg-cream/30 focus:outline-none focus:border-gold" placeholder="https://..." />
+                          <ImageUpload value={blogForm.image_url} onChange={(url) => setBlogForm(p => ({...p, image_url: url}))} label="Cover Image" />
                         </div>
                       </div>
                       <div>
@@ -488,11 +488,11 @@ export default function AdminDashboard() {
                         <div><label className="text-sm font-semibold text-navy mb-1 block">Title *</label><input type="text" required value={newsForm.title} onChange={e => setNewsForm(p => ({...p, title: e.target.value, slug: generateSlug(e.target.value)}))} className="w-full px-4 py-2.5 rounded-lg border border-cream-dark bg-cream/30 focus:outline-none focus:border-gold" placeholder="Title" /></div>
                         <div><label className="text-sm font-semibold text-navy mb-1 block">Type</label><select value={newsForm.type} onChange={e => setNewsForm(p => ({...p, type: e.target.value}))} className="w-full px-4 py-2.5 rounded-lg border border-cream-dark bg-cream/30 focus:outline-none focus:border-gold"><option value="news">News</option><option value="event">Event</option></select></div>
                       </div>
-                      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                        <div><label className="text-sm font-semibold text-navy mb-1 block">Image URL</label><input type="text" value={newsForm.image_url} onChange={e => setNewsForm(p => ({...p, image_url: e.target.value}))} className="w-full px-4 py-2.5 rounded-lg border border-cream-dark bg-cream/30 focus:outline-none focus:border-gold" placeholder="https://..." /></div>
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div><label className="text-sm font-semibold text-navy mb-1 block">Date</label><input type="date" value={newsForm.event_date} onChange={e => setNewsForm(p => ({...p, event_date: e.target.value}))} className="w-full px-4 py-2.5 rounded-lg border border-cream-dark bg-cream/30 focus:outline-none focus:border-gold" /></div>
                         <div><label className="text-sm font-semibold text-navy mb-1 block">Location</label><input type="text" value={newsForm.location} onChange={e => setNewsForm(p => ({...p, location: e.target.value}))} className="w-full px-4 py-2.5 rounded-lg border border-cream-dark bg-cream/30 focus:outline-none focus:border-gold" placeholder="Venue / Address" /></div>
                       </div>
+                      <ImageUpload value={newsForm.image_url} onChange={(url) => setNewsForm(p => ({...p, image_url: url}))} label="Cover Image" />
                       <div><label className="text-sm font-semibold text-navy mb-1 block">Excerpt *</label><textarea required rows={2} value={newsForm.excerpt} onChange={e => setNewsForm(p => ({...p, excerpt: e.target.value}))} className="w-full px-4 py-2.5 rounded-lg border border-cream-dark bg-cream/30 focus:outline-none focus:border-gold resize-none" placeholder="Brief summary..." /></div>
                       <div><label className="text-sm font-semibold text-navy mb-1 block">Content * (HTML)</label><textarea required rows={8} value={newsForm.content} onChange={e => setNewsForm(p => ({...p, content: e.target.value}))} className="w-full px-4 py-2.5 rounded-lg border border-cream-dark bg-cream/30 focus:outline-none focus:border-gold resize-y font-mono text-sm" placeholder="<h2>Heading</h2><p>Content...</p>" /></div>
                       <label className="flex items-center gap-2 cursor-pointer"><input type="checkbox" checked={newsForm.published} onChange={e => setNewsForm(p => ({...p, published: e.target.checked}))} className="w-4 h-4 rounded border-cream-dark text-gold focus:ring-gold" /><span className="text-sm font-semibold text-navy">Publish immediately</span></label>

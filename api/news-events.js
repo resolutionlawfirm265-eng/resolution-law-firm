@@ -10,31 +10,49 @@ export default async function handler(req, res) {
     if (req.method === 'GET') {
       const { slug, published } = req.query;
       if (slug) {
-        const { data, error } = await supabase.from('news_events').select('*').eq('slug', slug).single();
+        const { data, error } = await supabase
+          .from('news_events')
+          .select('*')
+          .eq('slug', slug)
+          .single();
         if (error) throw error;
         return res.status(200).json(data);
       }
-      let query = supabase.from('news_events').select('*').order('created_at', { ascending: false });
-      if (published === 'true') query = query.eq('published', true);
+      let query = supabase.from('news_events').select('*').order('event_date', { ascending: false });
+      if (published === 'true') {
+        query = query.eq('published', true);
+      }
       const { data, error } = await query;
       if (error) throw error;
       return res.status(200).json(data);
     }
     if (req.method === 'POST') {
       const { title, slug, excerpt, content, type, image_url, event_date, location, published } = req.body;
-      const { data, error } = await supabase.from('news_events').insert({ title, slug, excerpt, content, type: type || 'news', image_url: image_url || '', event_date: event_date || '', location: location || '', published: published || false }).select().single();
+      const { data, error } = await supabase
+        .from('news_events')
+        .insert({ title, slug, excerpt, content, type: type || 'news', image_url: image_url || '', event_date: event_date || new Date().toISOString(), location: location || '', published: published || false })
+        .select()
+        .single();
       if (error) throw error;
       return res.status(201).json(data);
     }
     if (req.method === 'PUT') {
       const { id, title, slug, excerpt, content, type, image_url, event_date, location, published } = req.body;
-      const { data, error } = await supabase.from('news_events').update({ title, slug, excerpt, content, type, image_url, event_date, location, published }).eq('id', id).select().single();
+      const { data, error } = await supabase
+        .from('news_events')
+        .update({ title, slug, excerpt, content, type, image_url, event_date, location, published })
+        .eq('id', id)
+        .select()
+        .single();
       if (error) throw error;
       return res.status(200).json(data);
     }
     if (req.method === 'DELETE') {
       const { id } = req.body;
-      const { error } = await supabase.from('news_events').delete().eq('id', id);
+      const { error } = await supabase
+        .from('news_events')
+        .delete()
+        .eq('id', id);
       if (error) throw error;
       return res.status(200).json({ ok: true });
     }

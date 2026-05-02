@@ -34,7 +34,7 @@ export default function App() {
           <Route path="/case-law/:slug" element={<CaseLawDetail />} />
           <Route path="/reviews" element={<Reviews />} />
           <Route path="/news-events" element={<NewsEvents />} />
-          <Route path="/news-event/:slug" element={<NewsEventDetail />} />
+          <Route path="/news/:slug" element={<NewsEventDetail />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/admin" element={<AdminLogin />} />
           <Route path="/admin/dashboard" element={<AdminDashboard />} />

@@ -4,8 +4,16 @@ import { motion } from 'framer-motion'
 import { ArrowLeft, Calendar, MapPin, Newspaper } from 'lucide-react'
 
 interface NewsEvent {
-  id: number; title: string; slug: string; excerpt: string; content: string;
-  type: string; image_url: string; event_date: string; location: string; created_at: string;
+  id: number
+  title: string
+  slug: string
+  excerpt: string
+  content: string
+  type: string
+  image_url: string
+  event_date: string
+  location: string
+  created_at: string
 }
 
 export default function NewsEventDetail() {
@@ -46,16 +54,12 @@ export default function NewsEventDetail() {
               <ArrowLeft size={16} /> Back to News & Events
             </Link>
             <div className="flex items-center gap-3 mb-4 flex-wrap">
-              <span className={`px-3 py-1 rounded-full text-white text-xs font-bold ${
-                item.type === 'event' ? 'bg-blue-500' : 'gold-gradient'
-              }`}>
-                {item.type === 'event' ? 'Event' : 'News'}
+              <span className={`px-3 py-1 rounded-full text-xs font-bold capitalize ${
+                item.type === 'event' ? 'bg-blue-500 text-white' : 'gold-gradient text-white'
+              }`}>{item.type}</span>
+              <span className="text-white/50 text-sm flex items-center gap-1">
+                <Calendar size={14} /> {new Date(item.event_date).toLocaleDateString('en-PK', { year: 'numeric', month: 'long', day: 'numeric' })}
               </span>
-              {item.event_date && (
-                <span className="text-white/50 text-sm flex items-center gap-1">
-                  <Calendar size={14} /> {new Date(item.event_date).toLocaleDateString('en-PK', { year: 'numeric', month: 'long', day: 'numeric' })}
-                </span>
-              )}
               {item.location && (
                 <span className="text-white/50 text-sm flex items-center gap-1">
                   <MapPin size={14} /> {item.location}
@@ -69,7 +73,11 @@ export default function NewsEventDetail() {
 
       <section className="py-12 sm:py-16 max-w-4xl mx-auto px-4 sm:px-6">
         {item.image_url && (
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="mb-8 rounded-xl overflow-hidden border border-cream-dark">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="rounded-xl overflow-hidden mb-8 border border-cream-dark"
+          >
             <img src={item.image_url} alt={item.title} className="w-full h-auto max-h-[400px] object-cover" />
           </motion.div>
         )}
