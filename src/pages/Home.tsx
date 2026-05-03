@@ -65,7 +65,7 @@ export default function Home() {
               {/* Mobile logo — prominent */}
               <div className="flex lg:hidden justify-center mb-6">
                 <div className="w-36 h-36 rounded-full bg-navy-light/40 backdrop-blur-sm border-2 border-gold/20 flex items-center justify-center shadow-xl" style={{boxShadow:'0 0 40px rgba(196,151,59,0.15)'}}>
-                  <img src="/uploads/upload_1.png" alt="Resolution Law Firm Logo" className="w-28 h-28 object-contain" />
+                  <img src="/uploads/upload_1.png" alt="Resolution Law Firm Logo" className="w-28 h-28 object-contain brightness-0 invert" style={{filter:'brightness(0) invert(1) drop-shadow(0 8px 32px rgba(196,151,59,0.25))'}} />
                 </div>
               </div>
               <div className="flex items-center gap-2 mb-4">
