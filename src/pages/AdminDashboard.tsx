@@ -389,7 +389,9 @@ export default function AdminDashboard() {
                     <div className="text-center py-16 text-slate">No blog posts yet. Create your first post!</div>
                   ) : blogs.map(blog => (
                     <div key={blog.id} className="bg-white rounded-xl p-5 border border-cream-dark flex items-start justify-between gap-3">
-                      <div className="flex-1 min-w-0">
+                      <div className="flex items-start gap-3 flex-1 min-w-0">
+                        {blog.image_url && <img src={blog.image_url} alt="" className="w-16 h-16 rounded-lg object-cover shrink-0" />}
+                        <div className="flex-1 min-w-0">
                         <div className="flex items-center gap-2 flex-wrap">
                           <h3 className="font-semibold text-navy">{blog.title}</h3>
                           <span className={`text-xs px-2 py-0.5 rounded-full font-semibold ${blog.published ? 'bg-green-100 text-green-700' : 'bg-amber-100 text-amber-700'}`}>
@@ -399,6 +401,7 @@ export default function AdminDashboard() {
                         </div>
                         <p className="text-slate text-sm mt-1 line-clamp-1">{blog.excerpt}</p>
                         <p className="text-slate/50 text-xs mt-1">{new Date(blog.created_at).toLocaleDateString()}</p>
+                      </div>
                       </div>
                       <div className="flex items-center gap-1 shrink-0">
                         <button onClick={() => toggleBlogPublish(blog)} className={`p-2 rounded-lg transition-colors ${blog.published ? 'text-green-500 hover:bg-green-50' : 'text-amber-500 hover:bg-amber-50'}`} title={blog.published ? 'Unpublish' : 'Publish'}>

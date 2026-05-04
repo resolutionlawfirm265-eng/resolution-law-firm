@@ -5,7 +5,7 @@ import { Scale, Shield, Users, Award, Star, Phone, ArrowRight, Clock, CheckCircl
 
 interface Service { id: number; title: string; description: string; icon: string; }
 interface Review { id: number; name: string; rating: number; comment: string; approved: boolean; }
-interface Blog { id: number; title: string; slug: string; excerpt: string; category: string; created_at: string; }
+interface Blog { id: number; title: string; slug: string; excerpt: string; category: string; image_url: string; created_at: string; }
 interface FAQ { id: number; question: string; answer: string; }
 
 const iconMap: Record<string, any> = {
@@ -281,10 +281,19 @@ export default function Home() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
               {blogs.map((blog, i) => (
                 <motion.div key={blog.id} initial={{ opacity: 0, y: 15 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.08 }}>
-                  <Link to={`/blog/${blog.slug}`} className="block bg-cream/50 rounded-xl p-5 border border-cream-dark hover:border-gold/30 hover:shadow-md transition-all group">
-                    <span className="text-xs font-bold text-gold uppercase tracking-wider">{blog.category}</span>
-                    <h3 className="font-heading text-base font-bold text-navy mt-1 mb-1 group-hover:text-gold transition-colors line-clamp-2">{blog.title}</h3>
-                    <span className="text-gold text-xs font-semibold flex items-center gap-1 mt-2">Read More <ArrowRight size={12} /></span>
+                  <Link to={`/blog/${blog.slug}`} className="block bg-cream/50 rounded-xl overflow-hidden border border-cream-dark hover:border-gold/30 hover:shadow-md transition-all group">
+                    <div className="h-36 sm:h-44 bg-navy/5 overflow-hidden">
+                      {blog.image_url ? (
+                        <img src={blog.image_url} alt={blog.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                      ) : (
+                        <div className="w-full h-full flex items-center justify-center"><Scale size={40} className="text-navy/10" /></div>
+                      )}
+                    </div>
+                    <div className="p-4 sm:p-5">
+                      <span className="text-xs font-bold text-gold uppercase tracking-wider">{blog.category}</span>
+                      <h3 className="font-heading text-base font-bold text-navy mt-1 mb-1 group-hover:text-gold transition-colors line-clamp-2">{blog.title}</h3>
+                      <span className="text-gold text-xs font-semibold flex items-center gap-1 mt-2">Read More <ArrowRight size={12} /></span>
+                    </div>
                   </Link>
                 </motion.div>
               ))}
